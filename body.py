@@ -1,5 +1,6 @@
 import pygame
 
+#какой то текст
 # считывание размеров экрана
 # import ctypes
 # user32 = ctypes.windll.user32
