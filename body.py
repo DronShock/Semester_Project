@@ -190,3 +190,4 @@ while not finished:
         pass
     # события меню паузы
 pygame.quit()
+#
