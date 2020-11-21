@@ -1,5 +1,6 @@
 import pygame as pg
-#from game_objects import *
+
+# from game_objects import *
 
 # какой то текст
 # считывание размеров экрана
@@ -12,7 +13,7 @@ screen_height = 650
 YELLOW = (255, 255, 0)
 BLACK = (0, 0, 0)
 FPS = 40
-active_buttons = [] #Массив с активными кнопками клавиатуры
+active_buttons = []  # Массив с активными кнопками клавиатуры
 characters = []
 
 pg.init()
@@ -28,7 +29,6 @@ playing_game = False
 open_inventory = False
 
 
-
 class player():
     def __init__(self, x, y, speed, image):
         self.width = 50
@@ -36,8 +36,8 @@ class player():
         self.x = 0
         self.y = 0
         self.speed = speed
-        self.image = pg.Surface((self.width,self.height))
-        self.image.fill((255,255,255))
+        self.image = pg.Surface((self.width, self.height))
+        self.image.fill((255, 255, 255))
 
     def go_to(self, x, y):
         '''
@@ -76,6 +76,8 @@ class player():
         if button == "sd":
             self.y -= self.speed * 0.71 / FPS
             self.x += self.speed * 0.71 / FPS
+
+
 characters.append(player)
 
 
@@ -85,15 +87,11 @@ def check_keyboard_buttons(event):
         if event.key == pg.K_w:
             active_buttons.append("w")
         if event.key == pg.K_a:
-            active_buttons.append("w")
+            active_buttons.append("a")
         if event.key == pg.K_s:
-            active_buttons.append("w")
+            active_buttons.append("s")
         if event.key == pg.K_d:
-            active_buttons.append("w")
-        if event.key == pg.K_ESCAPE:
-            active_buttons.append("esc")
-        if event.key == pg.K_r:
-            active_buttons.append("r")
+            active_buttons.append("d")
 
     if event.type == pg.KEYUP:
         if event.key == pg.K_w:
@@ -104,11 +102,6 @@ def check_keyboard_buttons(event):
             active_buttons.remove("s")
         if event.key == pg.K_d:
             active_buttons.remove("d")
-        if event.key == pg.K_ESCAPE:
-            active_buttons.append("esc")
-        if event.key == pg.K_r:
-            active_buttons.append("r")
-
 
 
 def do_command():
@@ -116,10 +109,6 @@ def do_command():
     global esc_menu
     global open_inventory
 
-    if "esc" in active_buttons:
-        esc_menu = True
-    if "r" in active_buttons:
-        open_inventory = True
     if "w" in active_buttons:
         player.go_button("w")
     if "a" in active_buttons:
@@ -137,32 +126,47 @@ def do_command():
     if "s" in active_buttons and "d" in active_buttons:
         player.go_button("sd")
 
-def update_characters_image():
-    for character in characters:
-        character.image.blit(screen, (character.x,character.y))
-        pg.display.update()
+
+# def update_characters_image():
+#    for character in characters:
+#        character.image.blit(screen, (character.x,character.y))
+#        pg.display.update()
+
+def button_start_game(x, y):
+    if (x >= 314) and (x <= 688) and (y >= 90) and (y <= 178):
+        return True
+    else:
+        return False
+
+
+menu_pict = pg.image.load('main_menu1.png')
 
 while not finished:
     clock.tick(FPS)
     for event in pg.event.get():
         if event.type == pg.QUIT:
             finished = True
-        check_keyboard_buttons(event)
-        do_command()
-        update_characters_image()
-
-
+        # update_characters_image()
         if main_menu == True:
-            pass
             # события в главном меню
+            screen.blit(menu_pict, (0, 0))
+            pg.display.update()
+            if event.type == pg.MOUSEBUTTONDOWN and event.button == 1:
+                click_x, click_y = event.pos
+                if button_start_game(click_x, click_y) == True:
+                    main_menu = False
+                    playing_game = True
+                    screen.fill(BLACK)
+                    pg.display.update()
         if playing_game == True:
-            pass
+            check_keyboard_buttons(event)
+            do_command()
+
             # события игры
             # не забыть про open_inventory
             # во время открытого инвенторя игра продолжается
         if esc_menu == True:
             pass
             # события меню паузы
-
 
 pg.quit()
