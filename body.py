@@ -77,13 +77,12 @@ class Player(pygame.sprite.Sprite):
         if time - self.last_update < self.frame_rate:
             self.last_update = time
             if move == "up":
-                for anim in player_anim_up:
-                    self.frame += 1
-                    if self.frame == len(player_anim_up):
-                        anim in player_anim_up[0]
-                    else:
-                        self.image = pygame.image.load(path.join(img_dir, anim)).convert()
-                        self.image.set_colorkey(BLACK)
+                self.frame += 1
+                if self.frame == len(player_anim_up):
+                    s in player_anim_up[0]
+                else:
+                    self.image = pygame.image.load(path.join(img_dir, player_anim_up[self.frame])).convert()
+                    self.image.set_colorkey(BLACK)
 
     def change_item(self):
         """
@@ -146,9 +145,9 @@ player_img = pygame.image.load(path.join(img_dir, "player.png")).convert()
 
 # Создание массивов с анимациями
 player_anim_up = ['Up 0.png', 'Up 1.png', 'Up 0.png', 'Up 2.png']
-player_anim_down = [('Down 0.png'), ('Down 1.png'), ('Down 0.png'), ('Down 2.png')]
-player_anim_left = [('Left 0.png'), ('Left 1.png'), ('Left 0.png'), ('Left 2.png')]
-player_anim_right = [('Right 0.png'), ('Right 1.png'), ('Right 0.png'), ('Right 2.png')]
+player_anim_down = ['Down 0.png', 'Down 1.png', 'Down 0.png', 'Down 2.png']
+player_anim_left = ['Left 0.png', 'Left 1.png', 'Left 0.png', 'Left 2.png']
+player_anim_right = ['Right 0.png', 'Right 1.png', 'Right 0.png', 'Right 2.png']
 
 # Добавления спрайтов в группу для отрисовки
 all_sprites = pygame.sprite.Group()
@@ -190,4 +189,4 @@ while not finished:
         pass
     # события меню паузы
 pygame.quit()
-#
+
