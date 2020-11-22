@@ -11,7 +11,7 @@ img_dir = path.join(path.dirname(__file__), 'img')
 # screensize = user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
 
 WIDTH = 1000
-HEIGHT = 800
+HEIGHT = 650
 FPS = 60
 
 WHITE = (255, 255, 255)
@@ -138,11 +138,18 @@ class enemy(NPC):
         pass
 
 
+def click_start_game(x, y):
+    if x >= 314 and x <= 688 and y >= 90 and y <= 178:
+        return True
+    else:
+        return False
+
+
 # Загрузка изображений объектов
 background = pygame.image.load(path.join(img_dir, 'DB32RecolorEx.png')).convert()
 background_rect = background.get_rect()
 player_img = pygame.image.load(path.join(img_dir, "player.png")).convert()
-
+main_menu_pict = pygame.image.load('main_menu1.png')
 # Создание массивов с анимациями
 player_anim_up = ['Up 0.png', 'Up 1.png', 'Up 0.png', 'Up 2.png']
 player_anim_down = ['Down 0.png', 'Down 1.png', 'Down 0.png', 'Down 2.png']
@@ -154,9 +161,9 @@ all_sprites = pygame.sprite.Group()
 player = Player()
 all_sprites.add(player)
 
-main_menu = False
+main_menu = True
 esc_menu = False
-playing_game = True
+playing_game = False
 open_inventory = False
 finished = False
 
@@ -168,7 +175,17 @@ while not finished:
             # проверка для закрытия окна
             finished = True
     if main_menu == True:
-        pass
+        screen.blit(main_menu_pict, (0, 0))
+        if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+            click_x, click_y = event.pos
+            screen.blit(main_menu_pict, (0, 0))
+            pygame.display.update()
+            if click_start_game(click_x, click_y) == True:
+                main_menu = False
+                playing_game = True
+                screen.fill(BLACK)
+                pygame.display.update()
+
     # события в главном меню
     if playing_game == True:
         # события игры
@@ -189,4 +206,3 @@ while not finished:
         pass
     # события меню паузы
 pygame.quit()
-
