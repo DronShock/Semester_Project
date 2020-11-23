@@ -1,5 +1,4 @@
 import pygame
-import random
 from os import path
 
 img_dir = path.join(path.dirname(__file__), 'img')
@@ -39,7 +38,7 @@ class Player(pygame.sprite.Sprite):
         self.speedy = 0
         self.frame = 0
         self.last_update = pygame.time.get_ticks()
-        self.frame_rate = 500
+        self.frame_rate = 200
 
     def update(self):
         """
@@ -49,20 +48,20 @@ class Player(pygame.sprite.Sprite):
         self.speedx = 0
         self.speedy = 0
         keystate = pygame.key.get_pressed()
-        if keystate[pygame.K_LEFT]:
-            self.animation("left")
-            self.speedx = -3
-        if keystate[pygame.K_RIGHT]:
-            self.speedx = 3
-            self.animation("right")
         if keystate[pygame.K_UP]:
             self.animation("up")
             self.speedy = -3
         if keystate[pygame.K_DOWN]:
             self.animation("down")
             self.speedy = 3
-        self.rect.x += self.speedx
-        self.rect.y += self.speedy
+        if keystate[pygame.K_LEFT]:
+            self.animation("left")
+            self.fix_scorosti()
+        if keystate[pygame.K_RIGHT]:
+            self.animation("right")
+            self.fix_scorosti()
+        self.rect.x += int(self.speedx)
+        self.rect.y += int(self.speedy)
         if self.rect.right > WIDTH:
             self.rect.right = WIDTH
         if self.rect.left < 0:
@@ -74,15 +73,35 @@ class Player(pygame.sprite.Sprite):
 
     def animation(self, move):
         time = pygame.time.get_ticks()
-        if time - self.last_update < self.frame_rate:
+        if time - self.last_update > self.frame_rate:
             self.last_update = time
-            if move == "up":
-                self.frame += 1
-                if self.frame == len(player_anim_up):
-                    s in player_anim_up[0]
-                else:
-                    self.image = pygame.image.load(path.join(img_dir, player_anim_up[self.frame])).convert()
-                    self.image.set_colorkey(BLACK)
+            self.frame += 1
+            if self.frame == len(eval('player_anim_{}'.format(move))):
+                self.frame = 0
+            self.image = pygame.image.load(path.join(img_dir,eval('player_anim_{}'.format(move))[self.frame])).convert()
+            self.image.set_colorkey(BLACK)
+
+    def fix_scorosti(self):
+        keystate = pygame.key.get_pressed()
+        if keystate[pygame.K_LEFT]:
+            if keystate[pygame.K_UP]:
+                self.speedx = -3/(2**(1/2))
+                self.speedy = -3/(2**(1/2))
+            elif keystate[pygame.K_DOWN]:
+                self.speedx = -3/(2**(1/2))
+                self.speedy = 3/(2**(1/2))
+            else:
+                self.speedx= -3
+        if keystate[pygame.K_RIGHT]:
+            if keystate[pygame.K_UP]:
+                self.speedx = 3/(2**(1/2))
+                self.speedy = -3/(2**(1/2))
+            elif keystate[pygame.K_DOWN]:
+                self.speedx = 3/(2**(1/2))
+                self.speedy = 3/(2**(1/2))
+            else:
+                self.speedx= 3
+
 
     def change_item(self):
         """

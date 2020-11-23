@@ -16,8 +16,10 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2ad9d14-9d6a-49a3-8e13-84cd35a572ed" name="Default Changelist" comment="Test 2">
+    <list default="true" id="b2ad9d14-9d6a-49a3-8e13-84cd35a572ed" name="Default Changelist" comment="Загрузил элементы интерфейса">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/body.py" beforeDir="false" afterPath="$PROJECT_DIR$/body.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/Down1.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +115,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Test" />
     <MESSAGE value="Test 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test 2" />
+    <MESSAGE value="Сделал ходьбу, загрузил карту и начал создавать анимации" />
+    <MESSAGE value="Загрузил элементы интерфейса" />
+    <option name="LAST_COMMIT_MESSAGE" value="Загрузил элементы интерфейса" />
   </component>
   <component name="WindowStateProjectService">
     <state x="488" y="227" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605620943605">
@@ -128,34 +132,42 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="549" y="175" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1605888596182" />
-    <state width="1515" height="213" key="GridCell.Tab.0.bottom" timestamp="1605971713575">
+    <state width="1515" height="213" key="GridCell.Tab.0.bottom" timestamp="1606146278412">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="213" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1605971713575" />
-    <state width="1515" height="213" key="GridCell.Tab.0.center" timestamp="1605971713575">
+    <state width="1515" height="213" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1606146278412" />
+    <state width="1515" height="213" key="GridCell.Tab.0.center" timestamp="1606146278412">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="213" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1605971713575" />
-    <state width="1515" height="213" key="GridCell.Tab.0.left" timestamp="1605971713575">
+    <state width="1515" height="213" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1606146278412" />
+    <state width="1515" height="213" key="GridCell.Tab.0.left" timestamp="1606146278412">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="213" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1605971713575" />
-    <state width="1515" height="213" key="GridCell.Tab.0.right" timestamp="1605971713575">
+    <state width="1515" height="213" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1606146278412" />
+    <state width="1515" height="213" key="GridCell.Tab.0.right" timestamp="1606146278412">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="213" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1605971713575" />
-    <state x="361" y="153" key="Vcs.Push.Dialog.v2" timestamp="1605888750318">
+    <state width="1515" height="213" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1606146278412" />
+    <state x="147" y="65" key="MergeDialog" timestamp="1605971964685">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="153" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1605888750318" />
+    <state x="147" y="65" key="MergeDialog/0.0.1536.834@0.0.1536.834" timestamp="1605971964685" />
+    <state x="407" y="181" key="MultipleFileMergeDialog" timestamp="1605971964694">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="407" y="181" key="MultipleFileMergeDialog/0.0.1536.834@0.0.1536.834" timestamp="1605971964694" />
+    <state x="361" y="153" key="Vcs.Push.Dialog.v2" timestamp="1605973253565">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="361" y="153" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1605973253565" />
     <state x="93" y="93" width="1350" height="648" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1605888022109">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="93" y="93" width="1350" height="648" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.834@0.0.1536.834" timestamp="1605888022109" />
-    <state x="590" y="334" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605955110003">
+    <state x="590" y="334" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606123298510">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="590" y="334" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.834@0.0.1536.834" timestamp="1605955110003" />
+    <state x="590" y="334" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.834@0.0.1536.834" timestamp="1606123298510" />
     <state x="425" y="189" key="run.anything.popup" timestamp="1605967287575">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
