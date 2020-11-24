@@ -70,6 +70,19 @@ class Player(pygame.sprite.Sprite):
             self.rect.bottom = HEIGHT
         if self.rect.top < 0:
             self.rect.top = 0
+        self.stolknovenia()
+
+    def stolknovenia(self):
+        hits = pygame.sprite.spritecollide(self, objects, False)
+        if hits:
+            if self.speedx<0:
+                self.rect.left = hits[0].rect.right
+            elif self.speedx>0:
+                self.rect.right = hits[0].rect.left
+            elif self.speedy<0:
+                self.rect.top = hits[0].rect.bottom
+            elif self.speedy>0:
+                self.rect.bottom = hits[0].rect.top
 
     def animation(self, move):
         time = pygame.time.get_ticks()
@@ -78,51 +91,62 @@ class Player(pygame.sprite.Sprite):
             self.frame += 1
             if self.frame == len(eval('player_anim_{}'.format(move))):
                 self.frame = 0
-            self.image = pygame.image.load(path.join(img_dir,eval('player_anim_{}'.format(move))[self.frame])).convert()
+            self.image = pygame.image.load(
+                path.join(img_dir, eval('player_anim_{}'.format(move))[self.frame])).convert()
             self.image.set_colorkey(BLACK)
+            old_center = self.rect.center
+            self.rect = self.image.get_rect()
+            self.rect.center = old_center
 
     def fix_scorosti(self):
         keystate = pygame.key.get_pressed()
         if keystate[pygame.K_LEFT]:
             if keystate[pygame.K_UP]:
-                self.speedx = -3/(2**(1/2))
-                self.speedy = -3/(2**(1/2))
+                self.speedx = -3 / (2 ** (1 / 2))
+                self.speedy = -3 / (2 ** (1 / 2))
             elif keystate[pygame.K_DOWN]:
-                self.speedx = -3/(2**(1/2))
-                self.speedy = 3/(2**(1/2))
+                self.speedx = -3 / (2 ** (1 / 2))
+                self.speedy = 3 / (2 ** (1 / 2))
             else:
-                self.speedx= -3
+                self.speedx = -3
         if keystate[pygame.K_RIGHT]:
             if keystate[pygame.K_UP]:
-                self.speedx = 3/(2**(1/2))
-                self.speedy = -3/(2**(1/2))
+                self.speedx = 3 / (2 ** (1 / 2))
+                self.speedy = -3 / (2 ** (1 / 2))
             elif keystate[pygame.K_DOWN]:
-                self.speedx = 3/(2**(1/2))
-                self.speedy = 3/(2**(1/2))
+                self.speedx = 3 / (2 ** (1 / 2))
+                self.speedy = 3 / (2 ** (1 / 2))
             else:
-                self.speedx= 3
+                self.speedx = 3
 
 
-    def change_item(self):
-        """
-        функция меняет предмет в руке
-        """
-
-    def change_armor(self):
-        """
-        функция меняет броню
-        """
+def change_item(self):
+    """
+    функция меняет предмет в руке
+    """
 
 
-class Camera():
-    pass
+def change_armor(self):
+    """
+    функция меняет броню
+    """
 
 
-class obj():
-    pass
+class Elementi_Karti(pygame.sprite.Sprite):
+    def __init__(self, image, position, x, y):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = image
+        self.position = position
+        self.image.set_colorkey(BLACK)
+        self.rect = self.image.get_rect()
+        self.rect.centerx = x
+        self.rect.bottom = y
+
+    def update(self):
+        pass
 
 
-class creature(obj):
+class creature():
     def __init__(self, x, y, speed):
         self.x = x
         self.y = y
@@ -144,7 +168,7 @@ class creature(obj):
         """
 
 
-class NPC(obj):
+class NPC():
     pass
 
 
@@ -169,6 +193,7 @@ background = pygame.image.load(path.join(img_dir, 'DB32RecolorEx.png')).convert(
 background_rect = background.get_rect()
 player_img = pygame.image.load(path.join(img_dir, "player.png")).convert()
 main_menu_pict = pygame.image.load('main_menu1.png')
+derevo1 = pygame.image.load(path.join(img_dir, 'Derevo 1.png')).convert()
 # Создание массивов с анимациями
 player_anim_up = ['Up 0.png', 'Up 1.png', 'Up 0.png', 'Up 2.png']
 player_anim_down = ['Down 0.png', 'Down 1.png', 'Down 0.png', 'Down 2.png']
@@ -176,9 +201,12 @@ player_anim_left = ['Left 0.png', 'Left 1.png', 'Left 0.png', 'Left 2.png']
 player_anim_right = ['Right 0.png', 'Right 1.png', 'Right 0.png', 'Right 2.png']
 
 # Добавления спрайтов в группу для отрисовки
-all_sprites = pygame.sprite.Group()
+active_sprites = pygame.sprite.Group()
+objects = pygame.sprite.Group()
 player = Player()
-all_sprites.add(player)
+derevo1 = Elementi_Karti(derevo1, 0, 500, 500)
+active_sprites.add(player, derevo1)
+objects.add(derevo1)
 
 main_menu = True
 esc_menu = False
@@ -212,12 +240,12 @@ while not finished:
         # во время открытого инвенторя игра продолжается
 
         # Обновление
-        all_sprites.update()
+        active_sprites.update()
 
         # Рендеринг
         screen.fill(BLACK)
         screen.blit(background, background_rect)
-        all_sprites.draw(screen)
+        active_sprites.draw(screen)
         # Переворачиваем экран после отрисовки
         pygame.display.flip()
 

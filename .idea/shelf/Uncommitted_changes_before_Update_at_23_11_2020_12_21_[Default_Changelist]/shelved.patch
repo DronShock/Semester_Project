@@ -1,0 +1,135 @@
+Index: body.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import pygame\r\nimport random\r\nfrom os import path\r\n\r\nimg_dir = path.join(path.dirname(__file__), 'img')\r\n\r\n# какой то текст\r\n# считывание размеров экрана\r\n# import ctypes\r\n# user32 = ctypes.windll.user32\r\n# screensize = user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)\r\n\r\nWIDTH = 1000\r\nHEIGHT = 800\r\nFPS = 60\r\n\r\nWHITE = (255, 255, 255)\r\nBLACK = (0, 0, 0)\r\nRED = (255, 0, 0)\r\nGREEN = (0, 255, 0)\r\nBLUE = (0, 0, 255)\r\nYELLOW = (255, 255, 0)\r\n\r\npygame.init()\r\npygame.mixer.init()\r\nscreen = pygame.display.set_mode((WIDTH, HEIGHT))\r\nclock = pygame.time.Clock()\r\n\r\n\r\nclass Player(pygame.sprite.Sprite):\r\n    def __init__(self):\r\n        pygame.sprite.Sprite.__init__(self)\r\n        self.image = player_img\r\n        self.image.set_colorkey(BLACK)\r\n        self.rect = self.image.get_rect()\r\n        self.rect.centerx = WIDTH // 2\r\n        self.rect.bottom = HEIGHT - 10\r\n        self.speedx = 0\r\n        self.speedy = 0\r\n        self.frame = 0\r\n        self.last_update = pygame.time.get_ticks()\r\n        self.frame_rate = 500\r\n\r\n    def update(self):\r\n        \"\"\"\r\n        Обновляет положение игрока на экране\r\n        :return: None\r\n        \"\"\"\r\n        self.speedx = 0\r\n        self.speedy = 0\r\n        keystate = pygame.key.get_pressed()\r\n        if keystate[pygame.K_LEFT]:\r\n            self.animation(\"left\")\r\n            self.speedx = -3\r\n        if keystate[pygame.K_RIGHT]:\r\n            self.speedx = 3\r\n            self.animation(\"right\")\r\n        if keystate[pygame.K_UP]:\r\n            self.animation(\"up\")\r\n            self.speedy = -3\r\n        if keystate[pygame.K_DOWN]:\r\n            self.animation(\"down\")\r\n            self.speedy = 3\r\n        self.rect.x += self.speedx\r\n        self.rect.y += self.speedy\r\n        if self.rect.right > WIDTH:\r\n            self.rect.right = WIDTH\r\n        if self.rect.left < 0:\r\n            self.rect.left = 0\r\n        if self.rect.bottom > HEIGHT:\r\n            self.rect.bottom = HEIGHT\r\n        if self.rect.top < 0:\r\n            self.rect.top = 0\r\n\r\n    def animation(self, move):\r\n        time = pygame.time.get_ticks()\r\n        if time - self.last_update < self.frame_rate:\r\n            self.last_update = time\r\n            if move == \"up\":\r\n                self.frame += 1\r\n                if self.frame == len(player_anim_up):\r\n                    s in player_anim_up[0]\r\n                else:\r\n                    self.image = pygame.image.load(path.join(img_dir, player_anim_up[self.frame])).convert()\r\n                    self.image.set_colorkey(BLACK)\r\n\r\n    def change_item(self):\r\n        \"\"\"\r\n        функция меняет предмет в руке\r\n        \"\"\"\r\n\r\n    def change_armor(self):\r\n        \"\"\"\r\n        функция меняет броню\r\n        \"\"\"\r\n\r\n\r\nclass Camera():\r\n    pass\r\n\r\n\r\nclass obj():\r\n    pass\r\n\r\n\r\nclass creature(obj):\r\n    def __init__(self, x, y, speed):\r\n        self.x = x\r\n        self.y = y\r\n        self.speed = speed\r\n\r\n    def go_to(self, x, y):\r\n        \"\"\"\r\n        функция должна заставлять идти объект к точке (x,y)\r\n        желательно еще связать это со скоростью\r\n        функция будет использоваться восновном для MPC\r\n        \"\"\"\r\n\r\n    def go_button(self, w, a, s, d):\r\n        \"\"\"\r\n        функция перемещения для игрока\r\n        w,a,s,d -- булевские переменные соответствующие нажатию на такие же кнопки\r\n        true -- кнопка\r\n        не забыть про одновременное нажатие на кнопок и постоянную скорость\r\n        \"\"\"\r\n\r\n\r\nclass NPC(obj):\r\n    pass\r\n\r\n\r\nclass peaceful(NPC):\r\n    pass\r\n\r\n\r\nclass enemy(NPC):\r\n    def attack(self):\r\n        pass\r\n\r\n\r\n# Загрузка изображений объектов\r\nbackground = pygame.image.load(path.join(img_dir, 'DB32RecolorEx.png')).convert()\r\nbackground_rect = background.get_rect()\r\nplayer_img = pygame.image.load(path.join(img_dir, \"player.png\")).convert()\r\n\r\n# Создание массивов с анимациями\r\nplayer_anim_up = ['Up 0.png', 'Up 1.png', 'Up 0.png', 'Up 2.png']\r\nplayer_anim_down = ['Down 0.png', 'Down 1.png', 'Down 0.png', 'Down 2.png']\r\nplayer_anim_left = ['Left 0.png', 'Left 1.png', 'Left 0.png', 'Left 2.png']\r\nplayer_anim_right = ['Right 0.png', 'Right 1.png', 'Right 0.png', 'Right 2.png']\r\n\r\n# Добавления спрайтов в группу для отрисовки\r\nall_sprites = pygame.sprite.Group()\r\nplayer = Player()\r\nall_sprites.add(player)\r\n\r\nmain_menu = False\r\nesc_menu = False\r\nplaying_game = True\r\nopen_inventory = False\r\nfinished = False\r\n\r\n# Цикл игры\r\nwhile not finished:\r\n    clock.tick(FPS)\r\n    for event in pygame.event.get():\r\n        if event.type == pygame.QUIT:\r\n            # проверка для закрытия окна\r\n            finished = True\r\n    if main_menu == True:\r\n        pass\r\n    # события в главном меню\r\n    if playing_game == True:\r\n        # события игры\r\n        # не забыть про open_inventory\r\n        # во время открытого инвенторя игра продолжается\r\n\r\n        # Обновление\r\n        all_sprites.update()\r\n\r\n        # Рендеринг\r\n        screen.fill(BLACK)\r\n        screen.blit(background, background_rect)\r\n        all_sprites.draw(screen)\r\n        # Переворачиваем экран после отрисовки\r\n        pygame.display.flip()\r\n\r\n    if esc_menu == True:\r\n        pass\r\n    # события меню паузы\r\npygame.quit()\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- body.py	(revision 3d60c2d705b070062b2f4fd194f6a1e0cd2d115e)
++++ body.py	(date 1605974073707)
+@@ -39,7 +39,7 @@
+         self.speedy = 0
+         self.frame = 0
+         self.last_update = pygame.time.get_ticks()
+-        self.frame_rate = 500
++        self.frame_rate = 50
+ 
+     def update(self):
+         """
+@@ -58,6 +58,15 @@
+         if keystate[pygame.K_UP]:
+             self.animation("up")
+             self.speedy = -3
++            time = pygame.time.get_ticks()
++            if time - self.last_update < self.frame_rate:
++                self.last_update = time
++                self.frame += 1
++                if self.frame == len(player_anim_up):
++                    self.frame=0
++                self.image = pygame.image.load(path.join(img_dir, player_anim_up[self.frame])).convert()
++                self.image.set_colorkey(BLACK)
++                self.rect = self.image.get_rect()
+         if keystate[pygame.K_DOWN]:
+             self.animation("down")
+             self.speedy = 3
+@@ -73,16 +82,7 @@
+             self.rect.top = 0
+ 
+     def animation(self, move):
+-        time = pygame.time.get_ticks()
+-        if time - self.last_update < self.frame_rate:
+-            self.last_update = time
+-            if move == "up":
+-                self.frame += 1
+-                if self.frame == len(player_anim_up):
+-                    s in player_anim_up[0]
+-                else:
+-                    self.image = pygame.image.load(path.join(img_dir, player_anim_up[self.frame])).convert()
+-                    self.image.set_colorkey(BLACK)
++        pass
+ 
+     def change_item(self):
+         """
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"BranchesTreeState\">\r\n    <expand>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"LOCAL_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n    </expand>\r\n    <select>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"LOCAL_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"BRANCH:master\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n    </select>\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"b2ad9d14-9d6a-49a3-8e13-84cd35a572ed\" name=\"Default Changelist\" comment=\"Test 2\">\r\n      <change beforePath=\"$PROJECT_DIR$/body.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/body.py\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"1kQ2tgqdjfhSh6d7IxkgvrR7JJ5\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Python.body\">\r\n    <configuration name=\"body\" type=\"PythonConfigurationType\" factoryName=\"Python\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"Semester_Project\" />\r\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\r\n      <option name=\"PARENT_ENVS\" value=\"true\" />\r\n      <envs>\r\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\r\n      </envs>\r\n      <option name=\"SDK_HOME\" value=\"\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$\" />\r\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\r\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\r\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\r\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/body.py\" />\r\n      <option name=\"PARAMETERS\" value=\"\" />\r\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\r\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\r\n      <option name=\"MODULE_MODE\" value=\"false\" />\r\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\r\n      <option name=\"INPUT_FILE\" value=\"\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"main\" type=\"PythonConfigurationType\" factoryName=\"Python\" nameIsGenerated=\"true\">\r\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\r\n      <option name=\"PARENT_ENVS\" value=\"true\" />\r\n      <envs>\r\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\r\n      </envs>\r\n      <option name=\"SDK_HOME\" value=\"C:\\Users\\andre\\.conda\\envs\\untitled\\python.exe\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$\" />\r\n      <option name=\"IS_MODULE_SDK\" value=\"false\" />\r\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\r\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\r\n      <module name=\"\" />\r\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/main.py\" />\r\n      <option name=\"PARAMETERS\" value=\"\" />\r\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\r\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\r\n      <option name=\"MODULE_MODE\" value=\"false\" />\r\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\r\n      <option name=\"INPUT_FILE\" value=\"\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Python.body\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State>\r\n              <option name=\"FILTERS\">\r\n                <map>\r\n                  <entry key=\"branch\">\r\n                    <value>\r\n                      <list>\r\n                        <option value=\"master\" />\r\n                      </list>\r\n                    </value>\r\n                  </entry>\r\n                </map>\r\n              </option>\r\n            </State>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Test\" />\r\n    <MESSAGE value=\"Test 2\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Test 2\" />\r\n  </component>\r\n  <component name=\"WindowStateProjectService\">\r\n    <state x=\"488\" y=\"227\" key=\"#com.intellij.fileTypes.FileTypeChooser\" timestamp=\"1605620943605\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"834\" />\r\n    </state>\r\n    <state x=\"488\" y=\"227\" key=\"#com.intellij.fileTypes.FileTypeChooser/0.0.1536.834@0.0.1536.834\" timestamp=\"1605620943605\" />\r\n    <state x=\"93\" y=\"93\" width=\"1350\" height=\"648\" key=\"DiffContextDialog\" timestamp=\"1605888369589\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"834\" />\r\n    </state>\r\n    <state x=\"93\" y=\"93\" width=\"1350\" height=\"648\" key=\"DiffContextDialog/0.0.1536.834@0.0.1536.834\" timestamp=\"1605888369589\" />\r\n    <state x=\"549\" y=\"175\" key=\"FileChooserDialogImpl\" timestamp=\"1605888596182\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"834\" />\r\n    </state>\r\n    <state x=\"549\" y=\"175\" key=\"FileChooserDialogImpl/0.0.1536.834@0.0.1536.834\" timestamp=\"1605888596182\" />\r\n    <state width=\"1515\" height=\"213\" key=\"GridCell.Tab.0.bottom\" timestamp=\"1605971713575\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"834\" />\r\n    </state>\r\n    <state width=\"1515\" height=\"213\" key=\"GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834\" timestamp=\"1605971713575\" />\r\n    <state width=\"1515\" height=\"213\" key=\"GridCell.Tab.0.center\" timestamp=\"1605971713575\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"834\" />\r\n    </state>\r\n    <state width=\"1515\" height=\"213\" key=\"GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834\" timestamp=\"1605971713575\" />\r\n    <state width=\"1515\" height=\"213\" key=\"GridCell.Tab.0.left\" timestamp=\"1605971713575\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"834\" />\r\n    </state>\r\n    <state width=\"1515\" height=\"213\" key=\"GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834\" timestamp=\"1605971713575\" />\r\n    <state width=\"1515\" height=\"213\" key=\"GridCell.Tab.0.right\" timestamp=\"1605971713575\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"834\" />\r\n    </state>\r\n    <state width=\"1515\" height=\"213\" key=\"GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834\" timestamp=\"1605971713575\" />\r\n    <state x=\"361\" y=\"153\" key=\"Vcs.Push.Dialog.v2\" timestamp=\"1605888750318\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"834\" />\r\n    </state>\r\n    <state x=\"361\" y=\"153\" key=\"Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834\" timestamp=\"1605888750318\" />\r\n    <state x=\"93\" y=\"93\" width=\"1350\" height=\"648\" key=\"com.intellij.history.integration.ui.views.FileHistoryDialog\" timestamp=\"1605888022109\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"834\" />\r\n    </state>\r\n    <state x=\"93\" y=\"93\" width=\"1350\" height=\"648\" key=\"com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.834@0.0.1536.834\" timestamp=\"1605888022109\" />\r\n    <state x=\"590\" y=\"334\" key=\"com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2\" timestamp=\"1605955110003\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"834\" />\r\n    </state>\r\n    <state x=\"590\" y=\"334\" key=\"com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.834@0.0.1536.834\" timestamp=\"1605955110003\" />\r\n    <state x=\"425\" y=\"189\" key=\"run.anything.popup\" timestamp=\"1605967287575\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"834\" />\r\n    </state>\r\n    <state x=\"425\" y=\"189\" key=\"run.anything.popup/0.0.1536.834@0.0.1536.834\" timestamp=\"1605967287575\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/workspace.xml	(revision 3d60c2d705b070062b2f4fd194f6a1e0cd2d115e)
++++ .idea/workspace.xml	(date 1606123298675)
+@@ -16,7 +16,8 @@
+     </select>
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="b2ad9d14-9d6a-49a3-8e13-84cd35a572ed" name="Default Changelist" comment="Test 2">
++    <list default="true" id="b2ad9d14-9d6a-49a3-8e13-84cd35a572ed" name="Default Changelist" comment="Загрузил элементы интерфейса">
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/body.py" beforeDir="false" afterPath="$PROJECT_DIR$/body.py" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+@@ -26,6 +27,7 @@
+   </component>
+   <component name="Git.Settings">
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
++    <option name="UPDATE_TYPE" value="REBASE" />
+   </component>
+   <component name="ProjectId" id="1kQ2tgqdjfhSh6d7IxkgvrR7JJ5" />
+   <component name="ProjectViewState">
+@@ -113,7 +115,9 @@
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="Test" />
+     <MESSAGE value="Test 2" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Test 2" />
++    <MESSAGE value="Сделал ходьбу, загрузил карту и начал создавать анимации" />
++    <MESSAGE value="Загрузил элементы интерфейса" />
++    <option name="LAST_COMMIT_MESSAGE" value="Загрузил элементы интерфейса" />
+   </component>
+   <component name="WindowStateProjectService">
+     <state x="488" y="227" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605620943605">
+@@ -128,26 +132,34 @@
+       <screen x="0" y="0" width="1536" height="834" />
+     </state>
+     <state x="549" y="175" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1605888596182" />
+-    <state width="1515" height="213" key="GridCell.Tab.0.bottom" timestamp="1605971713575">
++    <state width="1515" height="213" key="GridCell.Tab.0.bottom" timestamp="1605979873714">
++      <screen x="0" y="0" width="1536" height="834" />
++    </state>
++    <state width="1515" height="213" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1605979873714" />
++    <state width="1515" height="213" key="GridCell.Tab.0.center" timestamp="1605979873714">
++      <screen x="0" y="0" width="1536" height="834" />
++    </state>
++    <state width="1515" height="213" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1605979873714" />
++    <state width="1515" height="213" key="GridCell.Tab.0.left" timestamp="1605979873714">
+       <screen x="0" y="0" width="1536" height="834" />
+     </state>
+-    <state width="1515" height="213" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1605971713575" />
+-    <state width="1515" height="213" key="GridCell.Tab.0.center" timestamp="1605971713575">
++    <state width="1515" height="213" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1605979873714" />
++    <state width="1515" height="213" key="GridCell.Tab.0.right" timestamp="1605979873714">
+       <screen x="0" y="0" width="1536" height="834" />
+     </state>
+-    <state width="1515" height="213" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1605971713575" />
+-    <state width="1515" height="213" key="GridCell.Tab.0.left" timestamp="1605971713575">
++    <state width="1515" height="213" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1605979873714" />
++    <state x="147" y="65" key="MergeDialog" timestamp="1605971964685">
+       <screen x="0" y="0" width="1536" height="834" />
+     </state>
+-    <state width="1515" height="213" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1605971713575" />
+-    <state width="1515" height="213" key="GridCell.Tab.0.right" timestamp="1605971713575">
++    <state x="147" y="65" key="MergeDialog/0.0.1536.834@0.0.1536.834" timestamp="1605971964685" />
++    <state x="407" y="181" key="MultipleFileMergeDialog" timestamp="1605971964694">
+       <screen x="0" y="0" width="1536" height="834" />
+     </state>
+-    <state width="1515" height="213" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1605971713575" />
+-    <state x="361" y="153" key="Vcs.Push.Dialog.v2" timestamp="1605888750318">
++    <state x="407" y="181" key="MultipleFileMergeDialog/0.0.1536.834@0.0.1536.834" timestamp="1605971964694" />
++    <state x="361" y="153" key="Vcs.Push.Dialog.v2" timestamp="1605973253565">
+       <screen x="0" y="0" width="1536" height="834" />
+     </state>
+-    <state x="361" y="153" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1605888750318" />
++    <state x="361" y="153" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1605973253565" />
+     <state x="93" y="93" width="1350" height="648" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1605888022109">
+       <screen x="0" y="0" width="1536" height="834" />
+     </state>

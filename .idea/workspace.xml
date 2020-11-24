@@ -16,11 +16,21 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2ad9d14-9d6a-49a3-8e13-84cd35a572ed" name="Default Changelist" comment="Добавил анимацию ходьбы и исправил увеличение диагональной скорости" />
+    <list default="true" id="b2ad9d14-9d6a-49a3-8e13-84cd35a572ed" name="Default Changelist" comment="Отредоктировал название файла">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/body.py" beforeDir="false" afterPath="$PROJECT_DIR$/body.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -77,9 +87,31 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Semester_Project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="D:\Programmer\projects\Semester_Project\main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.body" />
+        <item itemvalue="Python.main" />
       </list>
     </recent_temporary>
   </component>
@@ -114,37 +146,54 @@
     <MESSAGE value="Сделал ходьбу, загрузил карту и начал создавать анимации" />
     <MESSAGE value="Загрузил элементы интерфейса" />
     <MESSAGE value="Добавил анимацию ходьбы и исправил увеличение диагональной скорости" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавил анимацию ходьбы и исправил увеличение диагональной скорости" />
+    <MESSAGE value="Отредоктировал название файла" />
+    <option name="LAST_COMMIT_MESSAGE" value="Отредоктировал название файла" />
   </component>
   <component name="WindowStateProjectService">
     <state x="488" y="227" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605620943605">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="488" y="227" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.834@0.0.1536.834" timestamp="1605620943605" />
-    <state x="93" y="93" width="1350" height="648" key="DiffContextDialog" timestamp="1605888369589">
+    <state x="93" y="93" width="1350" height="648" key="DiffContextDialog" timestamp="1606236124855">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="93" y="93" width="1350" height="648" key="DiffContextDialog/0.0.1536.834@0.0.1536.834" timestamp="1605888369589" />
+    <state x="93" y="93" width="1350" height="648" key="DiffContextDialog/0.0.1536.834@0.0.1536.834" timestamp="1606236124855" />
     <state x="549" y="175" key="FileChooserDialogImpl" timestamp="1605888596182">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="549" y="175" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1605888596182" />
-    <state width="1515" height="213" key="GridCell.Tab.0.bottom" timestamp="1606146393590">
+    <state width="1515" height="213" key="GridCell.Tab.0.bottom" timestamp="1606235805424">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="213" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1606146393590" />
-    <state width="1515" height="213" key="GridCell.Tab.0.center" timestamp="1606146393590">
+    <state width="1515" height="213" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1606235805424" />
+    <state width="1515" height="213" key="GridCell.Tab.0.center" timestamp="1606235805424">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="213" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1606146393590" />
-    <state width="1515" height="213" key="GridCell.Tab.0.left" timestamp="1606146393582">
+    <state width="1515" height="213" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1606235805424" />
+    <state width="1515" height="213" key="GridCell.Tab.0.left" timestamp="1606235805424">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="213" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1606146393582" />
-    <state width="1515" height="213" key="GridCell.Tab.0.right" timestamp="1606146393590">
+    <state width="1515" height="213" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1606235805424" />
+    <state width="1515" height="213" key="GridCell.Tab.0.right" timestamp="1606235805424">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="213" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1606146393590" />
+    <state width="1515" height="213" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1606235805424" />
+    <state width="1515" height="265" key="GridCell.Tab.1.bottom" timestamp="1606223247369">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1515" height="265" key="GridCell.Tab.1.bottom/0.0.1536.834@0.0.1536.834" timestamp="1606223247369" />
+    <state width="1515" height="265" key="GridCell.Tab.1.center" timestamp="1606223247369">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1515" height="265" key="GridCell.Tab.1.center/0.0.1536.834@0.0.1536.834" timestamp="1606223247369" />
+    <state width="1515" height="265" key="GridCell.Tab.1.left" timestamp="1606223247369">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1515" height="265" key="GridCell.Tab.1.left/0.0.1536.834@0.0.1536.834" timestamp="1606223247369" />
+    <state width="1515" height="265" key="GridCell.Tab.1.right" timestamp="1606223247369">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1515" height="265" key="GridCell.Tab.1.right/0.0.1536.834@0.0.1536.834" timestamp="1606223247369" />
     <state x="147" y="65" key="MergeDialog" timestamp="1605971964685">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -153,14 +202,14 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="407" y="181" key="MultipleFileMergeDialog/0.0.1536.834@0.0.1536.834" timestamp="1605971964694" />
-    <state x="361" y="153" key="Vcs.Push.Dialog.v2" timestamp="1606146372307">
+    <state x="361" y="153" key="Vcs.Push.Dialog.v2" timestamp="1606217425760">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="153" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1606146372307" />
-    <state x="93" y="93" width="1350" height="648" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1605888022109">
+    <state x="361" y="153" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1606217425760" />
+    <state x="93" y="93" width="1350" height="648" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1606223270565">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="93" y="93" width="1350" height="648" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.834@0.0.1536.834" timestamp="1605888022109" />
+    <state x="93" y="93" width="1350" height="648" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.834@0.0.1536.834" timestamp="1606223270565" />
     <state x="590" y="334" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606123298510">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
