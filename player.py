@@ -1,22 +1,15 @@
 import pygame
+import colors
 
 WIDTH = 1000
 HEIGHT = 650
 FPS = 60
 
-WHITE = (255, 255, 255)
-BLACK = (0, 0, 0)
-RED = (255, 0, 0)
-GREEN = (0, 255, 0)
-BLUE = (0, 0, 255)
-YELLOW = (255, 255, 0)
-
-
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
         self.image = player_img
-        self.image.set_colorkey(BLACK)
+        self.image.set_colorkey(colors.BLACK)
         self.rect = self.image.get_rect()
         self.rect.centerx = WIDTH // 2
         self.rect.bottom = HEIGHT - 10
