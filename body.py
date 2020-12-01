@@ -73,15 +73,15 @@ class Player(pygame.sprite.Sprite):
         self.stolknovenia()
 
     def stolknovenia(self):
-        hits = pygame.sprite.spritecollide(self, objects, False)
+        hits = pygame.sprite.spritecollide(self, elementi_karti, False)
         if hits:
-            if self.speedx<0:
+            if self.speedx < 0:
                 self.rect.left = hits[0].rect.right
-            elif self.speedx>0:
+            elif self.speedx > 0:
                 self.rect.right = hits[0].rect.left
-            elif self.speedy<0:
+            elif self.speedy < 0:
                 self.rect.top = hits[0].rect.bottom
-            elif self.speedy>0:
+            elif self.speedy > 0:
                 self.rect.bottom = hits[0].rect.top
 
     def animation(self, move):
@@ -132,7 +132,9 @@ def change_armor(self):
     """
 
 
-class Elementi_Karti(pygame.sprite.Sprite):
+class ElementiKarti(pygame.sprite.Sprite):
+    items = []
+
     def __init__(self, image, position, x, y):
         pygame.sprite.Sprite.__init__(self)
         self.image = image
@@ -141,12 +143,44 @@ class Elementi_Karti(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.centerx = x
         self.rect.bottom = y
-
-    def update(self):
-        pass
+        ElementiKarti.items.append(self)
 
 
-class creature():
+class Objects(pygame.sprite.Sprite):
+    items = []
+
+    def __init__(self, image, position, x, y,text=None):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = image
+        self.position = position
+        self.image.set_colorkey(BLACK)
+        self.rect = self.image.get_rect()
+        self.rect.centerx = x
+        self.rect.bottom = y
+        self.text = text
+        Objects.items.append(self)
+
+
+class Text:
+    """
+    Создаёт текст для отображения на экране
+    """
+    items = []
+    active_text = []
+
+    def __init__(self, surf, name, text, size, x, y, sprite=None, reading=False):
+        self.font_name = pygame.font.match_font(name)
+        self.font = pygame.font.Font(self.font_name, size)
+        self.text_surface = self.font.render(text, True, WHITE)
+        self.text_rect = self.text_surface.get_rect()
+        self.text_rect.midtop = (x, y)
+        self.reading = reading
+        self.surf = surf
+        self.sprite = sprite
+        Text.items.append(self)
+
+
+class Creature():
     def __init__(self, x, y, speed):
         self.x = x
         self.y = y
@@ -194,6 +228,21 @@ background_rect = background.get_rect()
 player_img = pygame.image.load(path.join(img_dir, "player.png")).convert()
 main_menu_pict = pygame.image.load('main_menu1.png')
 derevo1 = pygame.image.load(path.join(img_dir, 'Derevo 1.png')).convert()
+Svitok = pygame.image.load(path.join(img_dir, 'Svitok.png')).convert()
+Svitok = pygame.transform.scale(Svitok, (20, 30))
+
+# Создание текстов для игры
+Podskazka = Text(screen, 'arial', "Press 'f' to start reading", 18, 0, 0)
+Svitok1 = Text(screen, 'arial', "You are reading a scroll", 18, 500, 500, Svitok)
+Privetstvie1 = Text(screen, 'arial',
+                   "Приветсвуем Вас в ранней версии нашего игрового проекта,",
+                   25, 500, 100)
+Privetstvie2 = Text(screen, 'arial',
+                   "совсем скоро Вы сможете испытать его в действии!",
+                   25, 500, 150)
+Text.active_text.append(Privetstvie1)
+Text.active_text.append(Privetstvie2)
+
 # Создание массивов с анимациями
 player_anim_up = ['Up 0.png', 'Up 1.png', 'Up 0.png', 'Up 2.png']
 player_anim_down = ['Down 0.png', 'Down 1.png', 'Down 0.png', 'Down 2.png']
@@ -202,11 +251,30 @@ player_anim_right = ['Right 0.png', 'Right 1.png', 'Right 0.png', 'Right 2.png']
 
 # Добавления спрайтов в группу для отрисовки
 active_sprites = pygame.sprite.Group()
+elementi_karti = pygame.sprite.Group()
 objects = pygame.sprite.Group()
 player = Player()
-derevo1 = Elementi_Karti(derevo1, 0, 500, 500)
-active_sprites.add(player, derevo1)
-objects.add(derevo1)
+
+# Добавление объектов на карту
+derevo1 = ElementiKarti(derevo1, 0, 100, 100)
+svitok = Objects(Svitok, 0, 500, 500, Podskazka)
+
+def draw_text():
+    for text in Text.active_text:
+        text.surf.blit(text.text_surface, text.text_rect)
+
+Podskazka.text_rect.midtop =(svitok.rect.centerx,svitok.rect.bottom)
+hits = pygame.sprite.spritecollide(player, objects, False)
+if hits:
+    Text.active_text.append(Podskazka)
+
+active_sprites.add(player)
+for smth in ElementiKarti.items:
+    elementi_karti.add(smth)
+    active_sprites.add(smth)
+for smth in Objects.items:
+    objects.add(smth)
+    active_sprites.add(smth)
 
 main_menu = True
 esc_menu = False
@@ -246,6 +314,7 @@ while not finished:
         screen.fill(BLACK)
         screen.blit(background, background_rect)
         active_sprites.draw(screen)
+        draw_text()
         # Переворачиваем экран после отрисовки
         pygame.display.flip()
 
