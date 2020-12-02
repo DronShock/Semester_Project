@@ -18,6 +18,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b2ad9d14-9d6a-49a3-8e13-84cd35a572ed" name="Default Changelist" comment="Загрузил модели деревьев и добавил черновой вариант взаимодействия с окружением">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NPC.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/body.py" beforeDir="false" afterPath="$PROJECT_DIR$/body.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,9 +139,6 @@
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
-  <component name="TaskManager">
-    <servers />
-  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
@@ -191,22 +190,22 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="549" y="175" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1606693867722" />
-    <state width="1515" height="213" key="GridCell.Tab.0.bottom" timestamp="1606806523279">
+    <state width="1515" height="213" key="GridCell.Tab.0.bottom" timestamp="1606943671754">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="213" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1606806523279" />
-    <state width="1515" height="213" key="GridCell.Tab.0.center" timestamp="1606806523279">
+    <state width="1515" height="213" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1606943671754" />
+    <state width="1515" height="213" key="GridCell.Tab.0.center" timestamp="1606943671754">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="213" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1606806523279" />
-    <state width="1515" height="213" key="GridCell.Tab.0.left" timestamp="1606806523279">
+    <state width="1515" height="213" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1606943671754" />
+    <state width="1515" height="213" key="GridCell.Tab.0.left" timestamp="1606943671754">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="213" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1606806523279" />
-    <state width="1515" height="213" key="GridCell.Tab.0.right" timestamp="1606806523279">
+    <state width="1515" height="213" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1606943671754" />
+    <state width="1515" height="213" key="GridCell.Tab.0.right" timestamp="1606943671754">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="213" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1606806523279" />
+    <state width="1515" height="213" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1606943671754" />
     <state width="1515" height="265" key="GridCell.Tab.1.bottom" timestamp="1606223247369">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -255,13 +254,13 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="619" y="207" key="refactoring.ChangeSignatureDialog/0.0.1536.834@0.0.1536.834" timestamp="1606685855977" />
-    <state x="425" y="189" key="run.anything.popup" timestamp="1606692057444">
+    <state x="425" y="189" key="run.anything.popup" timestamp="1606943470825">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="425" y="189" key="run.anything.popup/0.0.1536.834@0.0.1536.834" timestamp="1606692057444" />
-    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1606686568032">
+    <state x="425" y="189" key="run.anything.popup/0.0.1536.834@0.0.1536.834" timestamp="1606943470825" />
+    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1606942150578">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1606686568032" />
+    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1606942150578" />
   </component>
 </project>
