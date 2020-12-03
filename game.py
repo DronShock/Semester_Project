@@ -1,6 +1,6 @@
 import pygame
-from in_playing_game import playing
-
+import drowing
+from body import click_start_game
 class Game:
     def __init__(self):
         self.WIDTH = 1000
@@ -13,6 +13,12 @@ class Game:
         self.open_inventory = False
         self.finished = False
         self.FPS = 40
+
+    def in_main_menu(self):
+        drowing.drow_main_menu(self.screen)
+        for event in pygame.event.get():
+            if body.click_start_game == True:
+
     def step(self):
         self.clock.tick(self.FPS)
         for event in pygame.event.get():
@@ -20,14 +26,15 @@ class Game:
                 # проверка для закрытия окна
                 self.finished = True
         if self.main_menu == True:
-            pass
-                #подлкючить сюда файл in_main_menu
+            in_main_menu()
+
         if self.playing_game == True:
             # события игры
             # не забыть про open_inventory
             # во время открытого инвенторя игра продолжается
-            play()
-
+            loading()
+            game_step()
+            draw_all()
 
         if self.esc_menu == True:
             pass

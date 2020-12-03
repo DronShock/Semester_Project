@@ -1,9 +1,10 @@
 import pygame
-from game import *
+import game
 pygame.init()
-g = game.Game()
+g = Game()
 finished = False
 clock = pygame.time.Clock()
 FPS = 60
 while not finished:
     g.step()
+pygame.quit()
