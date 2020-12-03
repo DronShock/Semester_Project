@@ -36,6 +36,8 @@ class Player(pygame.sprite.Sprite):
         self.rect.bottom = HEIGHT - 10
         self.speedx = 0
         self.speedy = 0
+        self.move = "up"
+        self.uron = None
         self.frame = 0
         self.last_update = pygame.time.get_ticks()
         self.frame_rate = 200
@@ -49,17 +51,19 @@ class Player(pygame.sprite.Sprite):
         self.speedy = 0
         keystate = pygame.key.get_pressed()
         if keystate[pygame.K_UP]:
-            self.animation("up")
+            self.move = "up"
             self.speedy = -3
         if keystate[pygame.K_DOWN]:
-            self.animation("down")
+            self.move = "down"
             self.speedy = 3
         if keystate[pygame.K_LEFT]:
-            self.animation("left")
+            self.move = "left"
             self.fix_scorosti()
         if keystate[pygame.K_RIGHT]:
-            self.animation("right")
+            self.move = "right"
             self.fix_scorosti()
+        if self.speedx !=0 or self.speedy != 0:
+            self.animation(self.move)
         self.rect.x += int(self.speedx)
         self.rect.y += int(self.speedy)
         if self.rect.right > WIDTH:
@@ -71,6 +75,7 @@ class Player(pygame.sprite.Sprite):
         if self.rect.top < 0:
             self.rect.top = 0
         self.stolknovenia()
+        self.udar()
 
     def stolknovenia(self):
         hits = pygame.sprite.spritecollide(self, elementi_karti, False)
@@ -83,6 +88,12 @@ class Player(pygame.sprite.Sprite):
                 self.rect.top = hits[0].rect.bottom
             elif self.speedy > 0:
                 self.rect.bottom = hits[0].rect.top
+
+    def udar(self):
+        self.uron = None
+        keystate = pygame.key.get_pressed()
+        if keystate[pygame.K_SPACE]:
+            self.uron = self.move
 
     def animation(self, move):
         time = pygame.time.get_ticks()
@@ -120,6 +131,70 @@ class Player(pygame.sprite.Sprite):
                 self.speedx = 3
 
 
+class Enemy(pygame.sprite.Sprite):
+    def __init__(self):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = player_img
+        self.health_points = 30
+        self.image.set_colorkey(BLACK)
+        self.rect = self.image.get_rect()
+        self.rect.centerx = WIDTH // 3
+        self.rect.bottom = HEIGHT // 3
+        self.speedx = 0
+        self.speedy = 0
+        self.frame = 0
+        self.last_update = pygame.time.get_ticks()
+        self.frame_rate = 200
+
+    def update(self):
+        if self.rect.centery > player.rect.centery:
+            self.speedy = -1
+            self.animation("up")
+        elif self.rect.centery < player.rect.centery:
+            self.speedy = 1
+            self.animation("down")
+        else:
+            self.speedy = 0
+            if self.rect.centerx > player.rect.centerx:
+                self.speedx = -1
+                self.animation("left")
+            else:
+                self.speedx = 1
+                self.animation("right")
+        if self.rect.centerx >= player.rect.centerx:
+            self.speedx = -1
+            self.animation("left")
+        else:
+            self.speedx = 1
+            self.animation("right")
+
+        self.rect.centerx += self.speedx
+        self.rect.centery += self.speedy
+        self.poluchenie_urona()
+
+    def poluchenie_urona(self):
+        if player.uron is not None:
+            if player.move == "up":
+                if self.rect.bottom < player.rect.top + 10:
+                    self.health_points -= 1
+        if self.health_points == 0:
+            self.kill()
+
+    def animation(self, move):
+        time = pygame.time.get_ticks()
+        if time - self.last_update > self.frame_rate:
+            self.last_update = time
+            self.frame += 1
+            if self.frame == len(eval('player_anim_{}'.format(move))):
+                self.frame = 0
+            self.image = pygame.image.load(
+                path.join(img_dir, eval('player_anim_{}'.format(move))[self.frame])).convert()
+            self.image.set_colorkey(BLACK)
+            old_center = self.rect.center
+            self.rect = self.image.get_rect()
+            self.rect.center = old_center
+
+
 def change_item(self):
     """
     функция меняет предмет в руке
@@ -149,7 +224,7 @@ class ElementiKarti(pygame.sprite.Sprite):
 class Objects(pygame.sprite.Sprite):
     items = []
 
-    def __init__(self, image, position, x, y,text=None):
+    def __init__(self, image, position, x, y, text=None):
         pygame.sprite.Sprite.__init__(self)
         self.image = image
         self.position = position
@@ -231,18 +306,6 @@ derevo1 = pygame.image.load(path.join(img_dir, 'Derevo 1.png')).convert()
 Svitok = pygame.image.load(path.join(img_dir, 'Svitok.png')).convert()
 Svitok = pygame.transform.scale(Svitok, (20, 30))
 
-# Создание текстов для игры
-Podskazka = Text(screen, 'arial', "Press 'f' to start reading", 18, 0, 0)
-Svitok1 = Text(screen, 'arial', "You are reading a scroll", 18, 500, 500, Svitok)
-Privetstvie1 = Text(screen, 'arial',
-                   "Приветсвуем Вас в ранней версии нашего игрового проекта,",
-                   25, 500, 100)
-Privetstvie2 = Text(screen, 'arial',
-                   "совсем скоро Вы сможете испытать его в действии!",
-                   25, 500, 150)
-Text.active_text.append(Privetstvie1)
-Text.active_text.append(Privetstvie2)
-
 # Создание массивов с анимациями
 player_anim_up = ['Up 0.png', 'Up 1.png', 'Up 0.png', 'Up 2.png']
 player_anim_down = ['Down 0.png', 'Down 1.png', 'Down 0.png', 'Down 2.png']
@@ -254,21 +317,37 @@ active_sprites = pygame.sprite.Group()
 elementi_karti = pygame.sprite.Group()
 objects = pygame.sprite.Group()
 player = Player()
+skelet = Enemy()
+
+# Создание текстов для игры
+Podskazka = Text(screen, 'arial', "Press 'f' to start reading", 18, 0, 0)
+Svitok1 = Text(screen, 'arial', "You are reading a scroll", 18, 500, 500, Svitok)
+Privetstvie1 = Text(screen, 'arial',
+                    "Приветсвуем Вас в ранней версии нашего игрового проекта,",
+                    25, 500, 100)
+Privetstvie2 = Text(screen, 'arial',
+                    "совсем скоро Вы сможете испытать его в действии!",
+                    25, 500, 150)
+Text.active_text.append(Privetstvie1)
+Text.active_text.append(Privetstvie2)
 
 # Добавление объектов на карту
 derevo1 = ElementiKarti(derevo1, 0, 100, 100)
 svitok = Objects(Svitok, 0, 500, 500, Podskazka)
 
+
 def draw_text():
     for text in Text.active_text:
         text.surf.blit(text.text_surface, text.text_rect)
 
-Podskazka.text_rect.midtop =(svitok.rect.centerx,svitok.rect.bottom)
+
+Podskazka.text_rect.midtop = (svitok.rect.centerx, svitok.rect.bottom)
 hits = pygame.sprite.spritecollide(player, objects, False)
 if hits:
     Text.active_text.append(Podskazka)
 
 active_sprites.add(player)
+active_sprites.add(skelet)
 for smth in ElementiKarti.items:
     elementi_karti.add(smth)
     active_sprites.add(smth)
