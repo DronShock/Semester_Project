@@ -62,7 +62,7 @@ class Player(pygame.sprite.Sprite):
         if keystate[pygame.K_RIGHT]:
             self.move = "right"
             self.fix_scorosti()
-        if self.speedx !=0 or self.speedy != 0:
+        if self.speedx != 0 or self.speedy != 0:
             self.animation(self.move)
         self.rect.x += int(self.speedx)
         self.rect.y += int(self.speedy)
@@ -93,7 +93,14 @@ class Player(pygame.sprite.Sprite):
         self.uron = None
         keystate = pygame.key.get_pressed()
         if keystate[pygame.K_SPACE]:
+            time = pygame.time.get_ticks()
+            self.image = eval("player_udar_{}".format(self.move)).convert()
             self.uron = self.move
+            #self.image = pygame.image.load(path.join(img_dir, eval('player_anim_{}'.format(self.move))[0])).convert()
+            #self.image = pygame.transform.scale(self.image, (35, 43))
+            old_center = self.rect.center
+            self.rect = self.image.get_rect()
+            self.rect.center = old_center
 
     def animation(self, move):
         time = pygame.time.get_ticks()
@@ -104,6 +111,7 @@ class Player(pygame.sprite.Sprite):
                 self.frame = 0
             self.image = pygame.image.load(
                 path.join(img_dir, eval('player_anim_{}'.format(move))[self.frame])).convert()
+            self.image = pygame.transform.scale(self.image, (35, 43))
             self.image.set_colorkey(BLACK)
             old_center = self.rect.center
             self.rect = self.image.get_rect()
@@ -132,14 +140,14 @@ class Player(pygame.sprite.Sprite):
 
 
 class Enemy(pygame.sprite.Sprite):
-    def __init__(self):
+    def __init__(self, x, y):
         pygame.sprite.Sprite.__init__(self)
         self.image = player_img
-        self.health_points = 30
+        self.health_points = 15
         self.image.set_colorkey(BLACK)
         self.rect = self.image.get_rect()
-        self.rect.centerx = WIDTH // 3
-        self.rect.bottom = HEIGHT // 3
+        self.rect.centerx = x
+        self.rect.bottom = y
         self.speedx = 0
         self.speedy = 0
         self.frame = 0
@@ -173,10 +181,13 @@ class Enemy(pygame.sprite.Sprite):
         self.poluchenie_urona()
 
     def poluchenie_urona(self):
+        active_sprites.remove(self)
+        hits = pygame.sprite.spritecollide(self, active_sprites, False,pygame.sprite.collide_rect_ratio(0.8))
+        active_sprites.add(self)
         if player.uron is not None:
-            if player.move == "up":
-                if self.rect.bottom < player.rect.top + 10:
-                    self.health_points -= 1
+            if hits:
+                self.health_points -= 1
+                self.rect.centerx -= 20 * self.speedx // abs(self.speedx)
         if self.health_points == 0:
             self.kill()
 
@@ -185,10 +196,10 @@ class Enemy(pygame.sprite.Sprite):
         if time - self.last_update > self.frame_rate:
             self.last_update = time
             self.frame += 1
-            if self.frame == len(eval('player_anim_{}'.format(move))):
+            if self.frame == len(eval('skelet_anim_{}'.format(move))):
                 self.frame = 0
             self.image = pygame.image.load(
-                path.join(img_dir, eval('player_anim_{}'.format(move))[self.frame])).convert()
+                path.join(img_dir, eval('skelet_anim_{}'.format(move))[self.frame])).convert()
             self.image.set_colorkey(BLACK)
             old_center = self.rect.center
             self.rect = self.image.get_rect()
@@ -300,24 +311,45 @@ def click_start_game(x, y):
 # Загрузка изображений объектов
 background = pygame.image.load(path.join(img_dir, 'DB32RecolorEx.png')).convert()
 background_rect = background.get_rect()
-player_img = pygame.image.load(path.join(img_dir, "player.png")).convert()
+player_img = pygame.image.load(path.join(img_dir, "Down_0.png")).convert()
+player_img = pygame.transform.scale(player_img, (35, 43))
 main_menu_pict = pygame.image.load('main_menu1.png')
 derevo1 = pygame.image.load(path.join(img_dir, 'Derevo 1.png')).convert()
 Svitok = pygame.image.load(path.join(img_dir, 'Svitok.png')).convert()
 Svitok = pygame.transform.scale(Svitok, (20, 30))
 
 # Создание массивов с анимациями
-player_anim_up = ['Up 0.png', 'Up 1.png', 'Up 0.png', 'Up 2.png']
-player_anim_down = ['Down 0.png', 'Down 1.png', 'Down 0.png', 'Down 2.png']
-player_anim_left = ['Left 0.png', 'Left 1.png', 'Left 0.png', 'Left 2.png']
-player_anim_right = ['Right 0.png', 'Right 1.png', 'Right 0.png', 'Right 2.png']
+skelet_anim_up = ['Up 0.png', 'Up 1.png', 'Up 0.png', 'Up 2.png']
+skelet_anim_down = ['Down 0.png', 'Down 1.png', 'Down 0.png', 'Down 2.png']
+skelet_anim_left = ['Left 0.png', 'Left 1.png', 'Left 0.png', 'Left 2.png']
+skelet_anim_right = ['Right 0.png', 'Right 1.png', 'Right 0.png', 'Right 2.png']
+
+player_anim_up = ['Up_0.png', 'Up_1.png', 'Up_0.png', 'Up_2.png']
+player_anim_down = ['Down_0.png', 'Down_1.png', 'Down_0.png', 'Down_2.png']
+player_anim_left = ['Left_0.png', 'Left_1.png', 'Left_0.png', 'Left_2.png']
+player_anim_right = ['Right_0.png', 'Right_1.png', 'Right_0.png', 'Right_2.png']
+
+player_udar_up = pygame.image.load(path.join(img_dir, "Udar_Up.png")).convert()
+player_udar_down = pygame.image.load(path.join(img_dir, "Udar_Down.png")).convert()
+player_udar_left = pygame.image.load(path.join(img_dir, "Udar_Left.png")).convert()
+player_udar_right = pygame.image.load(path.join(img_dir, "Udar_Right.png")).convert()
+player_udar_up = pygame.transform.scale(player_udar_up, (30, 75))
+player_udar_down = pygame.transform.scale(player_udar_down, (30, 75))
+player_udar_left = pygame.transform.scale(player_udar_left, (75, 46))
+player_udar_right = pygame.transform.scale(player_udar_right, (75, 46))
 
 # Добавления спрайтов в группу для отрисовки
 active_sprites = pygame.sprite.Group()
 elementi_karti = pygame.sprite.Group()
 objects = pygame.sprite.Group()
 player = Player()
-skelet = Enemy()
+
+# Создание врагов
+skelet1 = Enemy(100,100)
+skelet2 = Enemy(200,200)
+skelet3 = Enemy(300,300)
+skelet4 = Enemy(400,400)
+skelet5 = Enemy(500,500)
 
 # Создание текстов для игры
 Podskazka = Text(screen, 'arial', "Press 'f' to start reading", 18, 0, 0)
@@ -347,7 +379,11 @@ if hits:
     Text.active_text.append(Podskazka)
 
 active_sprites.add(player)
-active_sprites.add(skelet)
+active_sprites.add(skelet1)
+active_sprites.add(skelet2)
+active_sprites.add(skelet3)
+active_sprites.add(skelet4)
+active_sprites.add(skelet5)
 for smth in ElementiKarti.items:
     elementi_karti.add(smth)
     active_sprites.add(smth)

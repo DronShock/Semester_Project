@@ -16,10 +16,13 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2ad9d14-9d6a-49a3-8e13-84cd35a572ed" name="Default Changelist" comment="Загрузил модели деревьев и добавил черновой вариант взаимодействия с окружением">
+    <list default="true" id="b2ad9d14-9d6a-49a3-8e13-84cd35a572ed" name="Default Changelist" comment="Добавил противника и реализовал возможность наносить урон по нажатию пробела">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NPC.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/body.py" beforeDir="false" afterPath="$PROJECT_DIR$/body.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/laserRed16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/meteorBrown_med1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/playerShip1_orange.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/starfield.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,7 +174,8 @@
     <MESSAGE value="Добавил анимацию ходьбы и исправил увеличение диагональной скорости" />
     <MESSAGE value="Отредоктировал название файла" />
     <MESSAGE value="Загрузил модели деревьев и добавил черновой вариант взаимодействия с окружением" />
-    <option name="LAST_COMMIT_MESSAGE" value="Загрузил модели деревьев и добавил черновой вариант взаимодействия с окружением" />
+    <MESSAGE value="Добавил противника и реализовал возможность наносить урон по нажатию пробела" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил противника и реализовал возможность наносить урон по нажатию пробела" />
   </component>
   <component name="WindowStateProjectService">
     <state x="488" y="227" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605620943605">
@@ -190,22 +194,22 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="549" y="175" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1606693867722" />
-    <state width="1515" height="213" key="GridCell.Tab.0.bottom" timestamp="1606943671754">
+    <state width="1515" height="213" key="GridCell.Tab.0.bottom" timestamp="1607058203297">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="213" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1606943671754" />
-    <state width="1515" height="213" key="GridCell.Tab.0.center" timestamp="1606943671754">
+    <state width="1515" height="213" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1607058203297" />
+    <state width="1515" height="213" key="GridCell.Tab.0.center" timestamp="1607058203297">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="213" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1606943671754" />
-    <state width="1515" height="213" key="GridCell.Tab.0.left" timestamp="1606943671754">
+    <state width="1515" height="213" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1607058203297" />
+    <state width="1515" height="213" key="GridCell.Tab.0.left" timestamp="1607058203297">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="213" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1606943671754" />
-    <state width="1515" height="213" key="GridCell.Tab.0.right" timestamp="1606943671754">
+    <state width="1515" height="213" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1607058203297" />
+    <state width="1515" height="213" key="GridCell.Tab.0.right" timestamp="1607058203297">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="213" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1606943671754" />
+    <state width="1515" height="213" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1607058203297" />
     <state width="1515" height="265" key="GridCell.Tab.1.bottom" timestamp="1606223247369">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -234,10 +238,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="568" y="124" key="RollbackChangesDialog/0.0.1536.834@0.0.1536.834" timestamp="1606704980142" />
-    <state x="361" y="153" key="Vcs.Push.Dialog.v2" timestamp="1606236265492">
+    <state x="361" y="153" key="Vcs.Push.Dialog.v2" timestamp="1606943991788">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="153" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1606236265492" />
+    <state x="361" y="153" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1606943991788" />
     <state x="93" y="93" width="1350" height="648" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1606806593027">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -246,18 +250,18 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="93" y="93" width="1350" height="648" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.834@0.0.1536.834" timestamp="1606692106518" />
-    <state x="590" y="334" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606806994808">
+    <state x="590" y="334" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607049318905">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="590" y="334" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.834@0.0.1536.834" timestamp="1606806994808" />
+    <state x="590" y="334" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.834@0.0.1536.834" timestamp="1607049318905" />
     <state x="619" y="207" key="refactoring.ChangeSignatureDialog" timestamp="1606685855977">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="619" y="207" key="refactoring.ChangeSignatureDialog/0.0.1536.834@0.0.1536.834" timestamp="1606685855977" />
-    <state x="425" y="189" key="run.anything.popup" timestamp="1606943470825">
+    <state x="425" y="189" key="run.anything.popup" timestamp="1607052749040">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="425" y="189" key="run.anything.popup/0.0.1536.834@0.0.1536.834" timestamp="1606943470825" />
+    <state x="425" y="189" key="run.anything.popup/0.0.1536.834@0.0.1536.834" timestamp="1607052749040" />
     <state x="431" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1606942150578">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
