@@ -9,8 +9,13 @@ class Room(Item_map):
          ['00', '00', '00', '00', '09', '10', '11'])
 
     def __init__(self, number, *things):
+        '''
+        things - список всех объектов в комнате
+        например, (Tree1(100, 200, 300, 400), Stone(20, 40, 30, 50))
+        '''
         for i in things:
-
+            #TODO:
+            pass
         self.number = number
         self.plot_pos = 1
         # не трогать plot_pos

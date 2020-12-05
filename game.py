@@ -1,6 +1,7 @@
 import pygame
 import drowing
-from body import click_start_game
+
+
 class Game:
     def __init__(self):
         self.WIDTH = 1000
@@ -18,6 +19,13 @@ class Game:
         drowing.drow_main_menu(self.screen)
         for event in pygame.event.get():
             if body.click_start_game == True:
+                pass
+
+    def in_esc_menu(self):
+        pass
+
+    def game_step(self):
+
 
     def step(self):
         self.clock.tick(self.FPS)
@@ -39,4 +47,5 @@ class Game:
         if self.esc_menu == True:
             pass
         # события меню паузы
+
     pygame.quit()

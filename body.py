@@ -406,6 +406,7 @@ while not finished:
             finished = True
     if main_menu == True:
         screen.blit(main_menu_pict, (0, 0))
+        pygame.display.update()
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
             click_x, click_y = event.pos
             screen.blit(main_menu_pict, (0, 0))

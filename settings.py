@@ -1,0 +1,4 @@
+FPS = 40
+WIDTH = 1000
+HEIGHT = 650
+
