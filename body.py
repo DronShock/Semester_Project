@@ -1,5 +1,6 @@
 import pygame
 from os import path
+import map
 
 img_dir = path.join(path.dirname(__file__), 'img')
 
@@ -9,8 +10,8 @@ img_dir = path.join(path.dirname(__file__), 'img')
 # user32 = ctypes.windll.user32
 # screensize = user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
 
-WIDTH = 1000
-HEIGHT = 650
+WIDTH = 860
+HEIGHT = 860
 FPS = 60
 
 WHITE = (255, 255, 255)
@@ -24,6 +25,8 @@ pygame.init()
 pygame.mixer.init()
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 clock = pygame.time.Clock()
+
+current_map = map.Map1
 
 
 class Player(pygame.sprite.Sprite):
@@ -41,6 +44,8 @@ class Player(pygame.sprite.Sprite):
         self.frame = 0
         self.last_update = pygame.time.get_ticks()
         self.frame_rate = 200
+        self.next_x = 40
+        self.next_y = 140
 
     def update(self):
         """
@@ -64,8 +69,21 @@ class Player(pygame.sprite.Sprite):
             self.fix_scorosti()
         if self.speedx != 0 or self.speedy != 0:
             self.animation(self.move)
-        self.rect.x += int(self.speedx)
-        self.rect.y += int(self.speedy)
+
+        #Обновление координат
+        self.next_x += int(self.speedx)
+        self.next_y += int(self.speedy)
+        if current_map.collision(self.next_x, self.next_y) == False:
+            self.rect.x += int(self.speedx)
+            self.rect.y += int(self.speedy)
+            self.next_x = self.rect.x
+            self.next_y = self.rect.y
+
+        #Проверка на нажаите триггера
+        #if current_map.trigger(self.next_x, self.next_y) == False:
+
+
+        #Проверка границ экрана
         if self.rect.right > WIDTH:
             self.rect.right = WIDTH
         if self.rect.left < 0:
@@ -309,8 +327,13 @@ def click_start_game(x, y):
 
 
 # Загрузка изображений объектов
-background = pygame.image.load(path.join(img_dir, 'DB32RecolorEx.png')).convert()
-background_rect = background.get_rect()
+def load_map(name):
+    background = pygame.image.load(path.join(img_dir, name)).convert()
+    background_rect = background.get_rect()
+    return (background, background_rect)
+
+(background, background_rect) = load_map("main_map.png")
+
 player_img = pygame.image.load(path.join(img_dir, "Down_0.png")).convert()
 player_img = pygame.transform.scale(player_img, (35, 43))
 main_menu_pict = pygame.image.load('main_menu1.png')
@@ -364,8 +387,8 @@ Text.active_text.append(Privetstvie1)
 Text.active_text.append(Privetstvie2)
 
 # Добавление объектов на карту
-derevo1 = ElementiKarti(derevo1, 0, 100, 100)
-svitok = Objects(Svitok, 0, 500, 500, Podskazka)
+# derevo1 = ElementiKarti(derevo1, 0, 100, 100)
+# svitok = Objects(Svitok, 0, 500, 500, Podskazka)
 
 
 def draw_text():
@@ -373,10 +396,10 @@ def draw_text():
         text.surf.blit(text.text_surface, text.text_rect)
 
 
-Podskazka.text_rect.midtop = (svitok.rect.centerx, svitok.rect.bottom)
-hits = pygame.sprite.spritecollide(player, objects, False)
-if hits:
-    Text.active_text.append(Podskazka)
+# Podskazka.text_rect.midtop = (svitok.rect.centerx, svitok.rect.bottom)
+# hits = pygame.sprite.spritecollide(player, objects, False)
+# if hits:
+#     Text.active_text.append(Podskazka)
 
 active_sprites.add(player)
 active_sprites.add(skelet1)
@@ -390,6 +413,10 @@ for smth in ElementiKarti.items:
 for smth in Objects.items:
     objects.add(smth)
     active_sprites.add(smth)
+
+#Изменение начального положения игрока на карте
+player.rect.centerx = current_map.spawn_center[0]
+player.rect.centery = current_map.spawn_center[1]
 
 main_menu = True
 esc_menu = False
@@ -418,6 +445,7 @@ while not finished:
                 pygame.display.update()
 
     # события в главном меню
+
     if playing_game == True:
         # события игры
         # не забыть про open_inventory
@@ -425,6 +453,7 @@ while not finished:
 
         # Обновление
         active_sprites.update()
+
 
         # Рендеринг
         screen.fill(BLACK)

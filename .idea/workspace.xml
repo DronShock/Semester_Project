@@ -16,13 +16,14 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2ad9d14-9d6a-49a3-8e13-84cd35a572ed" name="Default Changelist" comment="Добавил противника и реализовал возможность наносить урон по нажатию пробела">
+    <list default="true" id="b2ad9d14-9d6a-49a3-8e13-84cd35a572ed" name="Default Changelist" comment="Загрузил модели деревьев и добавил черновой вариант взаимодействия с окружением">
+      <change afterPath="$PROJECT_DIR$/img/main_map.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Semester_Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Semester_Project.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_12_2020_23_17__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_12_2020_23_17__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/body.py" beforeDir="false" afterPath="$PROJECT_DIR$/body.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/laserRed16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/meteorBrown_med1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/playerShip1_orange.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/starfield.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/map.py" beforeDir="false" afterPath="$PROJECT_DIR$/map.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +47,12 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/img" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Pycharm_projects\Semester_Project\img" />
+    </key>
   </component>
   <component name="RunManager" selected="Python.body">
     <configuration name="body" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -56,9 +62,9 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="D:\program files\python\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/body.py" />
@@ -142,6 +148,16 @@
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b2ad9d14-9d6a-49a3-8e13-84cd35a572ed" name="Default Changelist" comment="Загрузил модели деревьев и добавил черновой вариант взаимодействия с окружением" />
+      <created>1607256653810</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1607256653810</updated>
+    </task>
+    <servers />
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
@@ -174,8 +190,7 @@
     <MESSAGE value="Добавил анимацию ходьбы и исправил увеличение диагональной скорости" />
     <MESSAGE value="Отредоктировал название файла" />
     <MESSAGE value="Загрузил модели деревьев и добавил черновой вариант взаимодействия с окружением" />
-    <MESSAGE value="Добавил противника и реализовал возможность наносить урон по нажатию пробела" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавил противника и реализовал возможность наносить урон по нажатию пробела" />
+    <option name="LAST_COMMIT_MESSAGE" value="Загрузил модели деревьев и добавил черновой вариант взаимодействия с окружением" />
   </component>
   <component name="WindowStateProjectService">
     <state x="488" y="227" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605620943605">
@@ -194,22 +209,26 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="549" y="175" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1606693867722" />
-    <state width="1515" height="213" key="GridCell.Tab.0.bottom" timestamp="1607058203297">
-      <screen x="0" y="0" width="1536" height="834" />
+    <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1607262662793">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1515" height="213" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1607058203297" />
-    <state width="1515" height="213" key="GridCell.Tab.0.center" timestamp="1607058203297">
-      <screen x="0" y="0" width="1536" height="834" />
+    <state width="1515" height="213" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1606806523279" />
+    <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1607262662793" />
+    <state width="1899" height="282" key="GridCell.Tab.0.center" timestamp="1607262662793">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1515" height="213" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1607058203297" />
-    <state width="1515" height="213" key="GridCell.Tab.0.left" timestamp="1607058203297">
-      <screen x="0" y="0" width="1536" height="834" />
+    <state width="1515" height="213" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1606806523279" />
+    <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1607262662793" />
+    <state width="1899" height="282" key="GridCell.Tab.0.left" timestamp="1607262662793">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1515" height="213" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1607058203297" />
-    <state width="1515" height="213" key="GridCell.Tab.0.right" timestamp="1607058203297">
-      <screen x="0" y="0" width="1536" height="834" />
+    <state width="1515" height="213" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1606806523279" />
+    <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1607262662793" />
+    <state width="1899" height="282" key="GridCell.Tab.0.right" timestamp="1607262662793">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1515" height="213" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1607058203297" />
+    <state width="1515" height="213" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1606806523279" />
+    <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1607262662793" />
     <state width="1515" height="265" key="GridCell.Tab.1.bottom" timestamp="1606223247369">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -238,10 +257,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="568" y="124" key="RollbackChangesDialog/0.0.1536.834@0.0.1536.834" timestamp="1606704980142" />
-    <state x="361" y="153" key="Vcs.Push.Dialog.v2" timestamp="1606943991788">
+    <state x="361" y="153" key="Vcs.Push.Dialog.v2" timestamp="1606236265492">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="153" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1606943991788" />
+    <state x="361" y="153" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1606236265492" />
     <state x="93" y="93" width="1350" height="648" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1606806593027">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -250,21 +269,22 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="93" y="93" width="1350" height="648" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.834@0.0.1536.834" timestamp="1606692106518" />
-    <state x="590" y="334" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607049318905">
-      <screen x="0" y="0" width="1536" height="834" />
+    <state x="738" y="416" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607256845335">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="590" y="334" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.834@0.0.1536.834" timestamp="1607049318905" />
+    <state x="590" y="334" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.834@0.0.1536.834" timestamp="1606806994808" />
+    <state x="738" y="416" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1607256845335" />
     <state x="619" y="207" key="refactoring.ChangeSignatureDialog" timestamp="1606685855977">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="619" y="207" key="refactoring.ChangeSignatureDialog/0.0.1536.834@0.0.1536.834" timestamp="1606685855977" />
-    <state x="425" y="189" key="run.anything.popup" timestamp="1607052749040">
+    <state x="425" y="189" key="run.anything.popup" timestamp="1606692057444">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="425" y="189" key="run.anything.popup/0.0.1536.834@0.0.1536.834" timestamp="1607052749040" />
-    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1606942150578">
+    <state x="425" y="189" key="run.anything.popup/0.0.1536.834@0.0.1536.834" timestamp="1606692057444" />
+    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1606686568032">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1606942150578" />
+    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1606686568032" />
   </component>
 </project>
