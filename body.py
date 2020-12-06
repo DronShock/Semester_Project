@@ -26,7 +26,7 @@ pygame.mixer.init()
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 clock = pygame.time.Clock()
 
-current_map = map.Map1
+current_map = map.Map2
 
 
 class Player(pygame.sprite.Sprite):
@@ -70,7 +70,8 @@ class Player(pygame.sprite.Sprite):
         if self.speedx != 0 or self.speedy != 0:
             self.animation(self.move)
 
-        #Обновление координат
+        # Обновление координат
+        global current_map
         self.next_x += int(self.speedx)
         self.next_y += int(self.speedy)
         if current_map.collision(self.next_x, self.next_y) == False:
@@ -79,11 +80,19 @@ class Player(pygame.sprite.Sprite):
             self.next_x = self.rect.x
             self.next_y = self.rect.y
 
-        #Проверка на нажаите триггера
-        #if current_map.trigger(self.next_x, self.next_y) == False:
+        # Проверка на нажаите триггера
+        if current_map.trigger(self.next_x, self.next_y) > 1:
+            id = current_map.trigger(self.next_x, self.next_y)
+            if current_map == map.Map1:
+                if id == 2:
+                    current_map = map.Map2
 
+                if id == 3:
+                    current_map = map.Map3
+            if current_map == map.Map2:
+                pass
 
-        #Проверка границ экрана
+        # Проверка границ экрана
         if self.rect.right > WIDTH:
             self.rect.right = WIDTH
         if self.rect.left < 0:
@@ -114,8 +123,8 @@ class Player(pygame.sprite.Sprite):
             time = pygame.time.get_ticks()
             self.image = eval("player_udar_{}".format(self.move)).convert()
             self.uron = self.move
-            #self.image = pygame.image.load(path.join(img_dir, eval('player_anim_{}'.format(self.move))[0])).convert()
-            #self.image = pygame.transform.scale(self.image, (35, 43))
+            # self.image = pygame.image.load(path.join(img_dir, eval('player_anim_{}'.format(self.move))[0])).convert()
+            # self.image = pygame.transform.scale(self.image, (35, 43))
             old_center = self.rect.center
             self.rect = self.image.get_rect()
             self.rect.center = old_center
@@ -200,7 +209,7 @@ class Enemy(pygame.sprite.Sprite):
 
     def poluchenie_urona(self):
         active_sprites.remove(self)
-        hits = pygame.sprite.spritecollide(self, active_sprites, False,pygame.sprite.collide_rect_ratio(0.8))
+        hits = pygame.sprite.spritecollide(self, active_sprites, False, pygame.sprite.collide_rect_ratio(0.8))
         active_sprites.add(self)
         if player.uron is not None:
             if hits:
@@ -327,12 +336,15 @@ def click_start_game(x, y):
 
 
 # Загрузка изображений объектов
+background = None
+background_rect = None
+
 def load_map(name):
     background = pygame.image.load(path.join(img_dir, name)).convert()
     background_rect = background.get_rect()
     return (background, background_rect)
 
-(background, background_rect) = load_map("main_map.png")
+(background, background_rect) = load_map(current_map.img_dir)
 
 player_img = pygame.image.load(path.join(img_dir, "Down_0.png")).convert()
 player_img = pygame.transform.scale(player_img, (35, 43))
@@ -368,11 +380,11 @@ objects = pygame.sprite.Group()
 player = Player()
 
 # Создание врагов
-skelet1 = Enemy(100,100)
-skelet2 = Enemy(200,200)
-skelet3 = Enemy(300,300)
-skelet4 = Enemy(400,400)
-skelet5 = Enemy(500,500)
+skelet1 = Enemy(100, 100)
+skelet2 = Enemy(200, 200)
+skelet3 = Enemy(300, 300)
+skelet4 = Enemy(400, 400)
+skelet5 = Enemy(500, 500)
 
 # Создание текстов для игры
 Podskazka = Text(screen, 'arial', "Press 'f' to start reading", 18, 0, 0)
@@ -385,6 +397,7 @@ Privetstvie2 = Text(screen, 'arial',
                     25, 500, 150)
 Text.active_text.append(Privetstvie1)
 Text.active_text.append(Privetstvie2)
+
 
 # Добавление объектов на карту
 # derevo1 = ElementiKarti(derevo1, 0, 100, 100)
@@ -414,9 +427,12 @@ for smth in Objects.items:
     objects.add(smth)
     active_sprites.add(smth)
 
-#Изменение начального положения игрока на карте
+# Изменение начального положения игрока на карте
 player.rect.centerx = current_map.spawn_center[0]
 player.rect.centery = current_map.spawn_center[1]
+
+#Загрузка начальнойкарты
+#load_map(current_map)
 
 main_menu = True
 esc_menu = False
@@ -453,7 +469,6 @@ while not finished:
 
         # Обновление
         active_sprites.update()
-
 
         # Рендеринг
         screen.fill(BLACK)
