@@ -1,5 +1,6 @@
 import pygame
-import drowing
+import drawing
+import map
 
 
 class Game:
@@ -16,7 +17,7 @@ class Game:
         self.FPS = 40
 
     def in_main_menu(self):
-        drowing.drow_main_menu(self.screen)
+        drawing.draw_main_menu(self.screen)
         for event in pygame.event.get():
             if body.click_start_game == True:
                 pass
