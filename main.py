@@ -27,7 +27,6 @@ sozdanie_textov(g.screen)
 
 finished = False
 clock = pygame.time.Clock()
-FPS = 60
 while not finished:
     g.step(active_sprites, background, background_rect, main_menu_pict, img_dir, current_map, map1, map2, map3,
            health_bar, mobs, player_anim_up, player_anim_down, player_anim_left, player_anim_right, player_udar_up,

@@ -4,22 +4,6 @@ import map
 
 img_dir = path.join(path.dirname(__file__), 'img')
 
-# какой то текст
-# считывание размеров экрана
-# import ctypes
-# user32 = ctypes.windll.user32
-# screensize = user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
-
-WIDTH = 860
-HEIGHT = 860
-FPS = 60
-
-WHITE = (255, 255, 255)
-BLACK = (0, 0, 0)
-RED = (255, 0, 0)
-GREEN = (0, 255, 0)
-BLUE = (0, 0, 255)
-YELLOW = (255, 255, 0)
 
 pygame.init()
 pygame.mixer.init()
