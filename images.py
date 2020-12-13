@@ -5,7 +5,7 @@ from os import path
 def create_pictures(img_dir):
     player_img = pygame.image.load(path.join(img_dir, "Down_0.png")).convert()
     player_img = pygame.transform.scale(player_img, (35, 43))
-    main_menu_pict = pygame.image.load('main_menu1.png')
+    main_menu_pict = pygame.image.load('menu1.png')
     main_menu_pict = pygame.transform.scale(main_menu_pict, (860, 860))
     derevo1 = pygame.image.load(path.join(img_dir, 'Derevo 1.png')).convert()
     Svitok = pygame.image.load(path.join(img_dir, 'Svitok.png')).convert()

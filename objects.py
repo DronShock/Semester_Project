@@ -20,7 +20,7 @@ class Objects(pygame.sprite.Sprite):
 
 class HealthBar(Objects):
     def __init__(self, position, x, y, img_dir):
-        super().__init__(position, x, y,image=pygame.image.load(path.join(img_dir, 'HealthBar_5.png')).convert())
+        super().__init__(position, x, y, image=pygame.image.load(path.join(img_dir, 'HealthBar_5.png')).convert())
         self.image = pygame.image.load(path.join(img_dir, 'HealthBar_5.png')).convert()
 
     def umenshenie_hp(self, player, img_dir):
