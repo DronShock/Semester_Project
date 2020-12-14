@@ -56,7 +56,7 @@ class Game:
             mobs.update(player, active_sprites, img_dir, skelet_anim_up, skelet_anim_down, skelet_anim_right,
                         skelet_anim_left)
             # Рендеринг
-            #FIXME: current map не
+            #FIXME: current_map не изменяется
             if current_map.trigger(player.next_x, player.next_y) > 1:
                 id = current_map.trigger(player.next_x, player.next_y)
                 if current_map == map1:
