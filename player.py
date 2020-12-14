@@ -21,6 +21,7 @@ class Player(pygame.sprite.Sprite):
         self.frame = 0
         self.last_update = pygame.time.get_ticks()
         self.frame_rate = 200
+        self.map_transition = False
 
     def update(self, img_dir, current_map, map1, map2, map3, health_bar, mobs, player_anim_up,
                player_anim_down, player_anim_left, player_anim_right, player_udar_up, player_udar_down,
@@ -62,11 +63,18 @@ class Player(pygame.sprite.Sprite):
             if current_map == map1:
                 if id == 2:
                     current_map = map2
-
+                    print("map changing...")
                 if id == 3:
                     current_map = map3
+                    print("map changing...")
             if current_map == map2:
-                pass
+                if id == 2:
+                    current_map = map1
+                    print("map changing...")
+            if current_map == map3:
+                if id == 2:
+                    current_map = map1
+                    print("map changing...")
 
         # Проверка границ экрана
         if self.rect.right > WIDTH:
