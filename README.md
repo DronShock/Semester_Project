@@ -1,3 +1,3 @@
 # Semester_Project
-Project by Strelnikov Andrew, Khomiakov Ivan and Unarov Aital
+Project by Strelnikov Andrew, Khomiakov Ivan and Unarov Aital.
 This is a simple RPG.
