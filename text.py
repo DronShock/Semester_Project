@@ -1,5 +1,6 @@
 import pygame
 from colors import BLACK
+from settings import WIDTH, HEIGHT
 
 
 class Text:
@@ -27,40 +28,30 @@ def draw_text():
 
 # Создание текстов для игры
 def sozdanie_textov1(screen):
-    message1 = Text(screen, 'arial', "Что происходит? Где я оказался? Я же готовился к экзамену по матану.", 18, 450,
-                    220)
-    message2 = Text(screen, 'arial', "Наверное, это лишь сон, но мне всё же стоит осмотреться вокруг.", 18, 450, 245)
-    message3 = Text(screen, 'arial', "(Используйте стрелочки для перемещения и пробел для удара.)", 18, 450, 275)
-    Text.active_text.append(message1)
-    Text.active_text.append(message2)
-    Text.active_text.append(message3)
-
+    Message1 = Text(screen, 'arial', "Что происходит? Где я оказался? Я же готовился к экзамену по матану.", 18, 450,
+                      220)
+    Message2 = Text(screen, 'arial', "Наверное, это лишь сон, но мне всё же стоит осмотреться вокруг.", 18, 450, 245)
+    Message3 = Text(screen, 'arial', "(Используйте стрелочки для перемещения и пробел для удара.)", 18, 450, 275)
+    Text.active_text.append(Message1)
+    Text.active_text.append(Message2)
+    Text.active_text.append(Message3)
 
 def sozdanie_textov2(screen):
-    message1 = Text(screen, 'arial', "Похоже, что не стоило всю ночь зубрить теоремы. От такого количества кофе мне",
-                    18, 450,
-                    220)
-    message2 = Text(screen, 'arial', "мерещится толпа народа. Хмм, кажется, что этот старец сидит", 18, 450, 245)
-    message3 = Text(screen, 'arial', "здесь не просто так. Надо спросить у него, что тут к чему", 18, 450, 275)
-    Text.active_text.append(message1)
-    Text.active_text.append(message2)
-    Text.active_text.append(message3)
-
-
+    Message1 = Text(screen, 'arial', "Похоже, что не стоило всю ночь зубрить теоремы. От такого количества кофе мне", 18, 450,
+                      220)
+    Message2 = Text(screen, 'arial', "мерещится толпа народа. Хмм, кажется, что этот старец сидит", 18, 450, 245)
+    Message3 = Text(screen, 'arial', "здесь не просто так. Надо спросить у него, что тут к чему", 18, 450, 275)
+    Text.active_text.append(Message1)
+    Text.active_text.append(Message2)
+    Text.active_text.append(Message3)
 def sozdanie_textov_questa(screen):
-    quest1 = Text(screen, 'arial',
-                  "Приветствую тебя, юный первокур. Ты, наверное, растерян и не понимаешь, что происходит?", 18, 450,
-                  220)
-    quest2 = Text(screen, 'arial',
-                  " Не буду тратить твоё время и рассказывать утомительную, но поучительную притчу об учёбе на Физтехе.",
-                  18, 450, 245)
-    quest3 = Text(screen, 'arial',
-                  " Скажу лишь, что для того, чтобы выбраться тебе потребуется покончить с 'долгами' в соседнем замке. Удачи!",
-                  18, 450, 275)
-    Text.active_text.append(quest1)
-    Text.active_text.append(quest2)
-    Text.active_text.append(quest3)
-
+    Quest1 = Text(screen, 'arial', "Приветствую тебя, юный первокур. Ты, наверное, растерян и не понимаешь, что происходит?", 18, 450,
+                      220)
+    Quest2 = Text(screen, 'arial', " Не буду тратить твоё время и рассказывать утомительную, но поучительную притчу об учёбе на Физтехе.", 18, 450, 245)
+    Quest3 = Text(screen, 'arial', " Скажу лишь, что для того, чтобы выбраться тебе потребуется покончить с 'долгами' в соседнем замке. Удачи!", 18, 450, 275)
+    Text.active_text.append(Quest1)
+    Text.active_text.append(Quest2)
+    Text.active_text.append(Quest3)
 
 def udalenie_textov():
     Text.active_text.clear()

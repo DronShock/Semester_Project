@@ -32,6 +32,7 @@ class Map:
 
     def trigger(self, x, y):
         """
+
         :param x: координата объекта по х
         :param y: координата объекта по y
         :return: Индекс триггера, если нажат триггер
@@ -44,11 +45,6 @@ class Map:
 
 
 def load_map(name, img_dir):
-    """
-    :param name: имя файла
-    :param img_dir: путь к файлу
-    :return:
-    """
     background = pygame.image.load(path.join(img_dir, name)).convert()
     background_rect = background.get_rect()
     return (background, background_rect)
@@ -136,11 +132,6 @@ def sozdanie_maps():
 
 
 def redactor_map(active_map, player):
-    """
-    :param active_map: действующая в данный момент карта
-    :param player: координаты центра для игрока
-    :return:
-    """
     current_map = active_map
     player.rect.centerx = current_map.spawn_center[0]
     player.rect.centery = current_map.spawn_center[1]

@@ -3,7 +3,6 @@ from colors import BLACK
 from os import path
 
 
-# Объявление класса объектов
 class Objects(pygame.sprite.Sprite):
     items = []
 
@@ -18,21 +17,18 @@ class Objects(pygame.sprite.Sprite):
         Objects.items.append(self)
 
 
-# Объявление полоски здоровья
 class HealthBar(Objects):
     def __init__(self, x, y, img_dir):
         super().__init__(x, y, image=pygame.image.load(path.join(img_dir, 'HealthBar_5.png')).convert())
         self.image = pygame.image.load(path.join(img_dir, 'HealthBar_5.png')).convert()
         self.image.set_colorkey(BLACK)
 
-    # Функция отрисовывает снижение здоровья
     def umenshenie_hp(self, player, img_dir):
         self.image = pygame.image.load(
             path.join(img_dir, 'HealthBar_{}.png'.format(player.health_points // 5))).convert()
         self.image.set_colorkey(BLACK)
 
 
-# Функция отрисовывает объекты
 def sozdanie_objectov(active_sprites, img_dir):
     health_bar = HealthBar(120, 50, img_dir)
     svitok_image = pygame.image.load(path.join(img_dir, 'Svitok.png')).convert()
@@ -54,7 +50,6 @@ def sozdanie_objectov(active_sprites, img_dir):
     return objects, health_bar, dialog_box, npc, stamina_bar, stamina_bar0, svitok
 
 
-# Функция отрисовывает снижение выносливости
 def vinoslivost(player, active_sprites, stamina_bar, stamina_bar0):
     if player.udar_flag != 0:
         active_sprites.remove(stamina_bar)
