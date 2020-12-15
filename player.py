@@ -69,8 +69,6 @@ class Player(pygame.sprite.Sprite):
         self.udar(player_udar_up, player_udar_down, player_udar_left, player_udar_right)
         self.bitva(mobs, health_bar)
 
-
-
     def udar(self, player_udar_up, player_udar_down, player_udar_left, player_udar_right):
         self.uron = None
         keystate = pygame.key.get_pressed()
@@ -89,6 +87,8 @@ class Player(pygame.sprite.Sprite):
         if hits:
             self.health_points -= 1
             HealthBar.umenshenie_hp(health_bar, self, img_dir=path.join(path.dirname(__file__), 'img'))
+        if self.health_points == 0:
+            exit()
 
     def animation(self, move, img_dir, player_anim_up, player_anim_down, player_anim_left, player_anim_right):
         time = pygame.time.get_ticks()
@@ -204,16 +204,21 @@ def create_characters(player_img):
     active_sprites = pygame.sprite.Group()
     player_sprite = pygame.sprite.Group()
     mobs = pygame.sprite.Group()
-    skelet1 = Enemy(100, 200, player_img)
-    skelet3 = Enemy(300, 100, player_img)
-    skelet2 = Enemy(200, 300, player_img)
-    skelet4 = Enemy(400, 400, player_img)
-    skelet5 = Enemy(500, 500, player_img)
-    skelet6 = Enemy(500, 100, player_img)
-    skelet7 = Enemy(700, 200, player_img)
-    skelet8 = Enemy(200, 600, player_img)
-    skelet9 = Enemy(600, 400, player_img)
-    skelet10 = Enemy(100, 500, player_img)
+    file = open('sceletons.txt', 'r')
+    lines = []
+    for line in file:
+        lines.append(line)
+    print(lines)
+    skelet1 = Enemy(int(lines[0].split()[1]), int(lines[0].split()[2]), player_img)
+    skelet2 = Enemy(int(lines[1].split()[1]), int(lines[1].split()[2]), player_img)
+    skelet3 = Enemy(int(lines[2].split()[1]), int(lines[2].split()[2]), player_img)
+    skelet4 = Enemy(int(lines[3].split()[1]), int(lines[3].split()[2]), player_img)
+    skelet5 = Enemy(int(lines[4].split()[1]), int(lines[4].split()[2]), player_img)
+    skelet6 = Enemy(int(lines[5].split()[1]), int(lines[5].split()[2]), player_img)
+    skelet7 = Enemy(int(lines[6].split()[1]), int(lines[6].split()[2]), player_img)
+    skelet8 = Enemy(int(lines[7].split()[1]), int(lines[7].split()[2]), player_img)
+    skelet9 = Enemy(int(lines[8].split()[1]), int(lines[8].split()[2]), player_img)
+    skelet10 = Enemy(int(lines[9].split()[1]), int(lines[9].split()[2]), player_img)
     player = Player(player_img)
     active_sprites.add(player)
     player_sprite.add(player)
