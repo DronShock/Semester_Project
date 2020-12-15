@@ -90,8 +90,6 @@ class Player(pygame.sprite.Sprite):
         if hits:
             self.health_points -= 1
             HealthBar.umenshenie_hp(health_bar, self, img_dir=path.join(path.dirname(__file__), 'img'))
-        if self.health_points == 0:
-            exit()
 
     def animation(self, move, img_dir, player_anim_up, player_anim_down, player_anim_left, player_anim_right):
         time = pygame.time.get_ticks()

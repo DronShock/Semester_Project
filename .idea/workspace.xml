@@ -1,31 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
-    <select>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </select>
+    <expand />
+    <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2ad9d14-9d6a-49a3-8e13-84cd35a572ed" name="Default Changelist" comment="Наполнил игру контентом. Добавил полоску выносливости, музыку, диалоги, квест, перемещение между комнатами. Исправил ошибки при ударах по противникам.">
-      <change afterPath="$PROJECT_DIR$/sceletons.txt" afterDir="false" />
+    <list default="true" id="b2ad9d14-9d6a-49a3-8e13-84cd35a572ed" name="Default Changelist" comment="Добавил экран смерти">
       <change beforePath="$PROJECT_DIR$/.idea/Semester_Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Semester_Project.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_12_2020_3_06__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_12_2020_3_06__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_2020_17_18__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_2020_17_18__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/game.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/map.py" beforeDir="false" afterPath="$PROJECT_DIR$/map.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/player.py" beforeDir="false" afterPath="$PROJECT_DIR$/player.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +29,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="RESET_MODE" value="MIXED" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="ProjectId" id="1kQ2tgqdjfhSh6d7IxkgvrR7JJ5" />
   <component name="ProjectViewState">
@@ -101,17 +84,17 @@
       <method v="2" />
     </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
-      <module name="Semester_Project" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="D:\program files\python\python.exe" />
+      <option name="SDK_HOME" value="C:\Users\andre\.conda\envs\untitled\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -153,9 +136,6 @@
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
-  <component name="TaskManager">
-    <servers />
-  </component>
   <component name="Vcs.Log.History.Properties">
     <option name="COLUMN_ORDER">
       <list>
@@ -169,6 +149,31 @@
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State>
@@ -188,6 +193,11 @@
         </entry>
       </map>
     </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="1" value="TOOL_WINDOW" />
+      </map>
+    </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
@@ -200,7 +210,10 @@
     <MESSAGE value="Загрузил модели деревьев и добавил черновой вариант взаимодействия с окружением" />
     <MESSAGE value="Добавил противника и реализовал возможность наносить урон по нажатию пробела" />
     <MESSAGE value="Наполнил игру контентом. Добавил полоску выносливости, музыку, диалоги, квест, перемещение между комнатами. Исправил ошибки при ударах по противникам." />
-    <option name="LAST_COMMIT_MESSAGE" value="Наполнил игру контентом. Добавил полоску выносливости, музыку, диалоги, квест, перемещение между комнатами. Исправил ошибки при ударах по противникам." />
+    <MESSAGE value="Добавил комментарии" />
+    <MESSAGE value="Добавил описание к функциям, исправил замечания по PEP8. Добавил звуки для удара и смерти скелета." />
+    <MESSAGE value="Добавил экран смерти" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил экран смерти" />
   </component>
   <component name="WindowStateProjectService">
     <state x="395" y="98" key="#Inspections" timestamp="1607544257675">
@@ -223,22 +236,22 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="549" y="175" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1606693867722" />
-    <state width="1515" height="213" key="GridCell.Tab.0.bottom" timestamp="1608016059265">
+    <state width="1515" height="213" key="GridCell.Tab.0.bottom" timestamp="1608024264113">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="213" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1608016059265" />
-    <state width="1515" height="213" key="GridCell.Tab.0.center" timestamp="1608016059265">
+    <state width="1515" height="213" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1608024264113" />
+    <state width="1515" height="213" key="GridCell.Tab.0.center" timestamp="1608024264112">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="213" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1608016059265" />
-    <state width="1515" height="213" key="GridCell.Tab.0.left" timestamp="1608016059265">
+    <state width="1515" height="213" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1608024264112" />
+    <state width="1515" height="213" key="GridCell.Tab.0.left" timestamp="1608024264112">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="213" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1608016059265" />
-    <state width="1515" height="213" key="GridCell.Tab.0.right" timestamp="1608016059265">
+    <state width="1515" height="213" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1608024264112" />
+    <state width="1515" height="213" key="GridCell.Tab.0.right" timestamp="1608024264113">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="213" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1608016059265" />
+    <state width="1515" height="213" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1608024264113" />
     <state width="1515" height="265" key="GridCell.Tab.1.bottom" timestamp="1606223247369">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -255,14 +268,14 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1515" height="265" key="GridCell.Tab.1.right/0.0.1536.834@0.0.1536.834" timestamp="1606223247369" />
-    <state x="147" y="65" key="MergeDialog" timestamp="1607557610585">
+    <state x="147" y="65" key="MergeDialog" timestamp="1608023469226">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="147" y="65" key="MergeDialog/0.0.1536.834@0.0.1536.834" timestamp="1607557610585" />
-    <state x="407" y="181" key="MultipleFileMergeDialog" timestamp="1608003486083">
+    <state x="147" y="65" key="MergeDialog/0.0.1536.834@0.0.1536.834" timestamp="1608023469226" />
+    <state x="407" y="181" key="MultipleFileMergeDialog" timestamp="1608021197254">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="407" y="181" key="MultipleFileMergeDialog/0.0.1536.834@0.0.1536.834" timestamp="1608003486083" />
+    <state x="407" y="181" key="MultipleFileMergeDialog/0.0.1536.834@0.0.1536.834" timestamp="1608021197254" />
     <state x="568" y="124" key="RollbackChangesDialog" timestamp="1607558042589">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -271,10 +284,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="618" y="339" key="VCS.ChangelistChooser/0.0.1536.834@0.0.1536.834" timestamp="1607557558372" />
-    <state x="361" y="153" key="Vcs.Push.Dialog.v2" timestamp="1608003502129">
+    <state x="361" y="153" key="Vcs.Push.Dialog.v2" timestamp="1608023425923">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="153" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1608003502129" />
+    <state x="361" y="153" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1608023425923" />
     <state x="93" y="93" width="1350" height="648" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1607965150857">
       <screen x="0" y="0" width="1536" height="834" />
     </state>

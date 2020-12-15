@@ -89,6 +89,7 @@ while not g.finished:
             active_sprites.remove(svitok)
     if player.health_points == 0:
         g.screen.blit(death_screen, (0, 0))
+        pygame.mixer.music.stop()
         pygame.display.update()
         pygame.time.wait(1000)
         g.playing_game = False
