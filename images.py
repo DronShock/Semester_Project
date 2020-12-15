@@ -7,6 +7,8 @@ def create_pictures(img_dir):
     player_img = pygame.transform.scale(player_img, (35, 43))
     main_menu_pict = pygame.image.load(path.join(img_dir, "menu1.png")).convert()
     main_menu_pict = pygame.transform.scale(main_menu_pict, (860, 860))
+    death_screen = pygame.image.load(path.join(img_dir, "death_screen.jfif")).convert()
+    death_screen = pygame.transform.scale(death_screen, (860, 860))
 
     # Создание массивов с анимациями
     skelet_anim_up = ['Up 0.png', 'Up 1.png', 'Up 0.png', 'Up 2.png']
@@ -31,4 +33,4 @@ def create_pictures(img_dir):
         player_img, main_menu_pict, skelet_anim_up, skelet_anim_down, skelet_anim_left, skelet_anim_right,
         player_anim_up,
         player_anim_down, player_anim_left, player_anim_right, player_udar_up, player_udar_down, player_udar_left,
-        player_udar_right)
+        player_udar_right, death_screen)

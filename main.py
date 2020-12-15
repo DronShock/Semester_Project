@@ -18,7 +18,7 @@ screen = g.screen
 # Перенос картинок в главный цикл
 (player_img, main_menu_pict, skelet_anim_up, skelet_anim_down, skelet_anim_left, skelet_anim_right, player_anim_up,
  player_anim_down, player_anim_left, player_anim_right, player_udar_up, player_udar_down, player_udar_left,
- player_udar_right) = create_pictures(img_dir)
+ player_udar_right, death_screen) = create_pictures(img_dir)
 
 # Создание групп спрайтов
 (active_sprites, player_sprite, player, mobs) = create_characters(player_img)
@@ -33,11 +33,9 @@ current_map = redactor_map(map1, player)
 
 # Загрузка музыки
 pygame.mixer.music.load(path.join(img_dir, 'TownTheme.mp3'))
-pygame.mixer.music.set_volume(0.1)
+pygame.mixer.music.set_volume(0.4)
 pygame.mixer.music.play(loops=-1)
 clock = pygame.time.Clock()
-
-# Главный цикл
 while not g.finished:
     player.next_x = player.rect.x + int(player.speedx)
     player.next_y = player.rect.y + int(player.speedy)
@@ -45,7 +43,7 @@ while not g.finished:
         id = current_map.trigger(player.next_x, player.next_y)
         if current_map == map1:
             if id == 2:
-                sozdanie_vragov(player_img, mobs, active_sprites)
+                sozdanie_vragov(mobs, active_sprites)
                 current_map = redactor_map(map2, player)
             if id == 3:
                 active_sprites.add(npc)
@@ -61,17 +59,12 @@ while not g.finished:
                 map1.spawn_center = (690, 520)
                 current_map = redactor_map(map1, player)
         (background, background_rect) = load_map(current_map.img_dir, img_dir)
-
-    # Функция полоски выносливости
     vinoslivost(player, active_sprites, stamina_bar, stamina_bar0)
-
-    # Передача переменных в объект игры
     g.step(active_sprites, background, background_rect, main_menu_pict, img_dir, current_map, map1, map2, map3,
            health_bar, mobs, player_anim_up, player_anim_down, player_anim_left, player_anim_right, player_udar_up,
            player_udar_down, player_udar_left, player_udar_right, objects, player_sprite, skelet_anim_up,
            skelet_anim_down, skelet_anim_right,
            skelet_anim_left, player)
-    # Расположение текстов на карте
     if current_map == map1:
         if player.rect.x < 100 and player.rect.y > 760:
             sozdanie_textov1(screen)
@@ -94,4 +87,9 @@ while not g.finished:
             udalenie_textov()
             active_sprites.remove(dialog_box)
             active_sprites.remove(svitok)
+    if player.health_points == 0:
+        g.screen.blit(death_screen, (0, 0))
+        pygame.display.update()
+        pygame.time.wait(1000)
+        g.playing_game = False
 pygame.quit()

@@ -69,8 +69,6 @@ class Player(pygame.sprite.Sprite):
         self.udar(player_udar_up, player_udar_down, player_udar_left, player_udar_right)
         self.bitva(mobs, health_bar)
 
-
-
     def udar(self, player_udar_up, player_udar_down, player_udar_left, player_udar_right):
         self.uron = None
         keystate = pygame.key.get_pressed()
