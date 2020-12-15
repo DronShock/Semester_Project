@@ -3,39 +3,41 @@ from game import Game
 from map import redactor_map, load_map, sozdanie_maps
 from player import create_characters, sozdanie_vragov, udalenie_vragov
 from objects import sozdanie_objectov, vinoslivost
-from text import sozdanie_textov1, sozdanie_textov2,sozdanie_textov_questa, udalenie_textov
+from text import sozdanie_textov1, sozdanie_textov2, sozdanie_textov_questa, udalenie_textov
 from images import create_pictures
 from os import path
 
-#Объявление папки с картинками
+# Объявление папки с картинками
 img_dir = path.join(path.dirname(__file__), 'img')
-#Инициализация пайгейма
+# Инициализация пайгейма
 pygame.init()
 pygame.mixer.init()
 g = Game()
 screen = g.screen
 
-#Перенос картинок в главный цикл
+# Перенос картинок в главный цикл
 (player_img, main_menu_pict, skelet_anim_up, skelet_anim_down, skelet_anim_left, skelet_anim_right, player_anim_up,
  player_anim_down, player_anim_left, player_anim_right, player_udar_up, player_udar_down, player_udar_left,
  player_udar_right) = create_pictures(img_dir)
 
-#Создание групп спрайтов
+# Создание групп спрайтов
 (active_sprites, player_sprite, player, mobs) = create_characters(player_img)
 
-#Создание объектов
+# Создание объектов
 (objects, health_bar, dialog_box, npc, stamina_bar, stamina_bar0, svitok) = sozdanie_objectov(active_sprites, img_dir)
 
-#Создание карт и фона
+# Создание карт и фона
 (map1, map2, map3) = sozdanie_maps()
 current_map = redactor_map(map1, player)
 (background, background_rect) = load_map(current_map.img_dir, img_dir)
 
-#Загрузка музыки
+# Загрузка музыки
 pygame.mixer.music.load(path.join(img_dir, 'TownTheme.mp3'))
-pygame.mixer.music.set_volume(0.4)
+pygame.mixer.music.set_volume(0.1)
 pygame.mixer.music.play(loops=-1)
 clock = pygame.time.Clock()
+
+# Главный цикл
 while not g.finished:
     player.next_x = player.rect.x + int(player.speedx)
     player.next_y = player.rect.y + int(player.speedy)
@@ -59,12 +61,17 @@ while not g.finished:
                 map1.spawn_center = (690, 520)
                 current_map = redactor_map(map1, player)
         (background, background_rect) = load_map(current_map.img_dir, img_dir)
+
+    # Функция полоски выносливости
     vinoslivost(player, active_sprites, stamina_bar, stamina_bar0)
+
+    # Передача переменных в объект игры
     g.step(active_sprites, background, background_rect, main_menu_pict, img_dir, current_map, map1, map2, map3,
            health_bar, mobs, player_anim_up, player_anim_down, player_anim_left, player_anim_right, player_udar_up,
            player_udar_down, player_udar_left, player_udar_right, objects, player_sprite, skelet_anim_up,
            skelet_anim_down, skelet_anim_right,
            skelet_anim_left, player)
+    # Расположение текстов на карте
     if current_map == map1:
         if player.rect.x < 100 and player.rect.y > 760:
             sozdanie_textov1(screen)
@@ -75,11 +82,11 @@ while not g.finished:
             active_sprites.remove(dialog_box)
             active_sprites.remove(svitok)
     if current_map == map3:
-        if player.rect.x < 100 and player.rect.y >600:
+        if player.rect.x < 100 and player.rect.y > 600:
             sozdanie_textov2(screen)
             active_sprites.add(dialog_box)
             active_sprites.add(svitok)
-        elif player.rect.x < 250 and player.rect.y >450 and player.rect.y < 550:
+        elif player.rect.x < 250 and 450 < player.rect.y < 550:
             sozdanie_textov_questa(screen)
             active_sprites.add(dialog_box)
             active_sprites.add(svitok)
@@ -87,5 +94,4 @@ while not g.finished:
             udalenie_textov()
             active_sprites.remove(dialog_box)
             active_sprites.remove(svitok)
-
 pygame.quit()

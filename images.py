@@ -7,9 +7,6 @@ def create_pictures(img_dir):
     player_img = pygame.transform.scale(player_img, (35, 43))
     main_menu_pict = pygame.image.load(path.join(img_dir, "menu1.png")).convert()
     main_menu_pict = pygame.transform.scale(main_menu_pict, (860, 860))
-    derevo1 = pygame.image.load(path.join(img_dir, 'Derevo 1.png')).convert()
-    Svitok = pygame.image.load(path.join(img_dir, 'Svitok.png')).convert()
-    Svitok = pygame.transform.scale(Svitok, (20, 30))
 
     # Создание массивов с анимациями
     skelet_anim_up = ['Up 0.png', 'Up 1.png', 'Up 0.png', 'Up 2.png']

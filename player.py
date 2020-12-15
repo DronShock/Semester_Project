@@ -73,6 +73,9 @@ class Player(pygame.sprite.Sprite):
         self.uron = None
         keystate = pygame.key.get_pressed()
         if keystate[pygame.K_SPACE] and self.udar_flag == 0:
+            sword_sound = pygame.mixer.Sound(path.join(path.join(path.dirname(__file__), 'img'), 'sword_sound.wav'))
+            sword_sound.set_volume(0.4)
+            sword_sound.play()
             self.udar_flag = 30
             self.image = eval("player_udar_{}".format(self.move)).convert()
             self.uron = self.move
@@ -180,9 +183,12 @@ class Enemy(pygame.sprite.Sprite):
         if player.uron is not None:
             if hits:
                 self.health_points -= 1
-                self.rect.centerx -= 20 * self.speedx // (abs(self.speedx)+0.1)
-                self.rect.centery -= 20 * self.speedy // (abs(self.speedy)+0.1)
+                self.rect.centerx -= 20 * self.speedx // (abs(self.speedx) + 0.1)
+                self.rect.centery -= 20 * self.speedy // (abs(self.speedy) + 0.1)
         if self.health_points == 0:
+            mob_death = pygame.mixer.Sound(path.join(path.join(path.dirname(__file__), 'img'), 'deaths.wav'))
+            mob_death.set_volume(0.4)
+            mob_death.play()
             self.kill()
 
     def animation(self, move, img_dir, skelet_anim_up, skelet_anim_down, skelet_anim_right, skelet_anim_left):
@@ -220,7 +226,7 @@ def create_characters(player_img):
     return active_sprites, player_sprite, player, mobs
 
 
-def sozdanie_vragov(player_img, mobs, active_sprites):
+def sozdanie_vragov(mobs, active_sprites):
     for mob in Enemy.items:
         mobs.add(mob)
         active_sprites.add(mob)
@@ -230,4 +236,3 @@ def udalenie_vragov(mobs, active_sprites):
     for mob in Enemy.items:
         mobs.add(mob)
         active_sprites.remove(mob)
-
