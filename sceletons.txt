@@ -1,0 +1,10 @@
+sceleton1: 100 100
+sceleton2: 100 150
+sceleton3: 200 200
+sceleton4: 300 300
+sceleton5: 400 400
+sceleton6: 500 500
+sceleton7: 500 100
+sceleton8: 700 200
+sceleton9: 600 400
+sceleton10: 100 500
