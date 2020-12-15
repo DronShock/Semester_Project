@@ -16,17 +16,17 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2ad9d14-9d6a-49a3-8e13-84cd35a572ed" name="Default Changelist" comment="Добавил файлы">
-      <change beforePath="$PROJECT_DIR$/.idea/Semester_Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Semester_Project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_12_2020_0_20__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_12_2020_0_20__Default_Changelist_.xml" afterDir="false" />
+    <list default="true" id="b2ad9d14-9d6a-49a3-8e13-84cd35a572ed" name="Default Changelist" comment="Наполнил игру контентом. Добавил полоску выносливости, музыку, диалоги, квест, перемещение между комнатами. Исправил ошибки при ударах по противникам.">
+      <change afterPath="$PROJECT_DIR$/img/menu1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_12_2020_0_20_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_12_2020_0_20__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/game.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images.py" beforeDir="false" afterPath="$PROJECT_DIR$/images.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/map.py" beforeDir="false" afterPath="$PROJECT_DIR$/map.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/menu1.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/objects.py" beforeDir="false" afterPath="$PROJECT_DIR$/objects.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/player.py" beforeDir="false" afterPath="$PROJECT_DIR$/player.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/text.py" beforeDir="false" afterPath="$PROJECT_DIR$/text.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,7 +197,8 @@
     <MESSAGE value="Отредоктировал название файла" />
     <MESSAGE value="Загрузил модели деревьев и добавил черновой вариант взаимодействия с окружением" />
     <MESSAGE value="Добавил противника и реализовал возможность наносить урон по нажатию пробела" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавил противника и реализовал возможность наносить урон по нажатию пробела" />
+    <MESSAGE value="Наполнил игру контентом. Добавил полоску выносливости, музыку, диалоги, квест, перемещение между комнатами. Исправил ошибки при ударах по противникам." />
+    <option name="LAST_COMMIT_MESSAGE" value="Наполнил игру контентом. Добавил полоску выносливости, музыку, диалоги, квест, перемещение между комнатами. Исправил ошибки при ударах по противникам." />
   </component>
   <component name="WindowStateProjectService">
     <state x="395" y="98" key="#Inspections" timestamp="1607544257675">
@@ -220,22 +221,22 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="549" y="175" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1606693867722" />
-    <state width="1515" height="213" key="GridCell.Tab.0.bottom" timestamp="1608003148095">
+    <state width="1515" height="213" key="GridCell.Tab.0.bottom" timestamp="1608016059265">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="213" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1608003148095" />
-    <state width="1515" height="213" key="GridCell.Tab.0.center" timestamp="1608003148095">
+    <state width="1515" height="213" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1608016059265" />
+    <state width="1515" height="213" key="GridCell.Tab.0.center" timestamp="1608016059265">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="213" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1608003148095" />
-    <state width="1515" height="213" key="GridCell.Tab.0.left" timestamp="1608003148095">
+    <state width="1515" height="213" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1608016059265" />
+    <state width="1515" height="213" key="GridCell.Tab.0.left" timestamp="1608016059265">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="213" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1608003148095" />
-    <state width="1515" height="213" key="GridCell.Tab.0.right" timestamp="1608003148095">
+    <state width="1515" height="213" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1608016059265" />
+    <state width="1515" height="213" key="GridCell.Tab.0.right" timestamp="1608016059265">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="213" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1608003148095" />
+    <state width="1515" height="213" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1608016059265" />
     <state width="1515" height="265" key="GridCell.Tab.1.bottom" timestamp="1606223247369">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -256,10 +257,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="147" y="65" key="MergeDialog/0.0.1536.834@0.0.1536.834" timestamp="1607557610585" />
-    <state x="407" y="181" key="MultipleFileMergeDialog" timestamp="1605971964694">
+    <state x="407" y="181" key="MultipleFileMergeDialog" timestamp="1608003486083">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="407" y="181" key="MultipleFileMergeDialog/0.0.1536.834@0.0.1536.834" timestamp="1605971964694" />
+    <state x="407" y="181" key="MultipleFileMergeDialog/0.0.1536.834@0.0.1536.834" timestamp="1608003486083" />
     <state x="568" y="124" key="RollbackChangesDialog" timestamp="1607558042589">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -268,10 +269,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="618" y="339" key="VCS.ChangelistChooser/0.0.1536.834@0.0.1536.834" timestamp="1607557558372" />
-    <state x="361" y="153" key="Vcs.Push.Dialog.v2" timestamp="1606943991788">
+    <state x="361" y="153" key="Vcs.Push.Dialog.v2" timestamp="1608003502129">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="153" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1606943991788" />
+    <state x="361" y="153" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1608003502129" />
     <state x="93" y="93" width="1350" height="648" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1607965150857">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -280,10 +281,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="93" y="93" width="1350" height="648" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.834@0.0.1536.834" timestamp="1607553928296" />
-    <state x="590" y="334" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607421373301">
+    <state x="590" y="334" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1608012755150">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="590" y="334" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.834@0.0.1536.834" timestamp="1607421373301" />
+    <state x="590" y="334" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.834@0.0.1536.834" timestamp="1608012755150" />
     <state x="619" y="207" key="refactoring.ChangeSignatureDialog" timestamp="1606685855977">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -296,21 +297,5 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="431" y="155" width="672" height="678" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1606942150578" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$USER_HOME$/AppData/Local/Temp/player.py</url>
-          <line>3</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$USER_HOME$/AppData/Local/Temp/blocks.py</url>
-          <line>3</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

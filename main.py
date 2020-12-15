@@ -7,26 +7,35 @@ from text import sozdanie_textov1, sozdanie_textov2,sozdanie_textov_questa, udal
 from images import create_pictures
 from os import path
 
+#Объявление папки с картинками
 img_dir = path.join(path.dirname(__file__), 'img')
+#Инициализация пайгейма
 pygame.init()
 pygame.mixer.init()
 g = Game()
 screen = g.screen
 
+#Перенос картинок в главный цикл
 (player_img, main_menu_pict, skelet_anim_up, skelet_anim_down, skelet_anim_left, skelet_anim_right, player_anim_up,
  player_anim_down, player_anim_left, player_anim_right, player_udar_up, player_udar_down, player_udar_left,
  player_udar_right) = create_pictures(img_dir)
 
+#Создание групп спрайтов
 (active_sprites, player_sprite, player, mobs) = create_characters(player_img)
+
+#Создание объектов
 (objects, health_bar, dialog_box, npc, stamina_bar, stamina_bar0, svitok) = sozdanie_objectov(active_sprites, img_dir)
+
+#Создание карт и фона
 (map1, map2, map3) = sozdanie_maps()
 current_map = redactor_map(map1, player)
 (background, background_rect) = load_map(current_map.img_dir, img_dir)
 
-clock = pygame.time.Clock()
+#Загрузка музыки
 pygame.mixer.music.load(path.join(img_dir, 'TownTheme.mp3'))
 pygame.mixer.music.set_volume(0.4)
 pygame.mixer.music.play(loops=-1)
+clock = pygame.time.Clock()
 while not g.finished:
     player.next_x = player.rect.x + int(player.speedx)
     player.next_y = player.rect.y + int(player.speedy)

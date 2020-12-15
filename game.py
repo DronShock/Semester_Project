@@ -57,36 +57,6 @@ class Game:
                         skelet_anim_left, player_sprite)
 
             # Рендеринг
-            #FIXME: current_map не изменяется
-            if current_map.trigger(player.next_x, player.next_y) > 1:
-                id = current_map.trigger(player.next_x, player.next_y)
-                if current_map == map1:
-                    if id == 2:
-                        current_map = map2
-                        (background, background_rect) = load_map(current_map.img_dir, img_dir)
-                        player.rect.x = current_map.spawn_center[0]
-                        player.rect.y = current_map.spawn_center[1]
-                        print("map changing...")
-                    if id == 3:
-                        current_map = map3
-                        (background, background_rect) = load_map(current_map.img_dir, img_dir)
-                        player.rect.x = current_map.spawn_center[0]
-                        player.rect.y = current_map.spawn_center[1]
-                        print("map changing...")
-                if current_map == map2:
-                    if id == 2:
-                        current_map = map1
-                        (background, background_rect) = load_map(current_map.img_dir, img_dir)
-                        player.rect.x = current_map.spawn_center[0]
-                        player.rect.y = current_map.spawn_center[1]
-                        print("map changing...")
-                if current_map == map3:
-                    if id == 2:
-                        current_map = map1
-                        (background, background_rect) = load_map(current_map.img_dir, img_dir)
-                        player.rect.x = current_map.spawn_center[0]
-                        player.rect.y = current_map.spawn_center[1]
-                        print("map changing...")
             self.screen.fill(BLACK)
             self.screen.blit(background, background_rect)
             active_sprites.draw(self.screen)

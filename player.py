@@ -230,3 +230,4 @@ def udalenie_vragov(mobs, active_sprites):
     for mob in Enemy.items:
         mobs.add(mob)
         active_sprites.remove(mob)
+

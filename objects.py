@@ -29,15 +29,11 @@ class HealthBar(Objects):
         self.image.set_colorkey(BLACK)
 
 
-class NPS(Objects):
-    pass
-
-
 def sozdanie_objectov(active_sprites, img_dir):
     health_bar = HealthBar(120, 50, img_dir)
     svitok_image = pygame.image.load(path.join(img_dir, 'Svitok.png')).convert()
     svitok_image = pygame.transform.scale(svitok_image, (40, 34))
-    svitok = Objects(460,350,svitok_image)
+    svitok = Objects(460, 350, svitok_image)
     stamina_bar = Objects(120, 80, pygame.image.load(path.join(img_dir, 'GreenBar.png')).convert())
     stamina_bar0 = Objects(120, 80, pygame.image.load(path.join(img_dir, 'EmptyBar.png')).convert())
     npc_image = pygame.image.load(path.join(img_dir, 'NPC_down.png')).convert()
@@ -51,7 +47,7 @@ def sozdanie_objectov(active_sprites, img_dir):
     active_sprites.add(stamina_bar)
     active_sprites.add(dialog_box)
     active_sprites.add(svitok)
-    return objects, health_bar, dialog_box, npc, stamina_bar, stamina_bar0,svitok
+    return objects, health_bar, dialog_box, npc, stamina_bar, stamina_bar0, svitok
 
 
 def vinoslivost(player, active_sprites, stamina_bar, stamina_bar0):
