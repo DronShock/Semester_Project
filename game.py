@@ -2,6 +2,7 @@ import pygame
 from text import draw_text
 from settings import WIDTH, HEIGHT, FPS
 from colors import BLACK
+from map import load_map
 
 
 # Определяют область нажатия
@@ -21,6 +22,7 @@ class Game:
         self.playing_game = False
         self.finished = False
         self.FPS = FPS
+        self.death = False
 
     def in_main_menu(self, main_menu_pict):
         """
@@ -32,10 +34,12 @@ class Game:
         pygame.display.update()
         if self.event.type == pygame.MOUSEBUTTONDOWN and self.event.button == 1:
             click_x, click_y = self.event.pos
-            if click_new_game(click_x, click_y) or click_continue(click_x, click_y):
+            if click_new_game(click_x, click_y):
                 self.playing_game = True
-                self.screen.fill(BLACK)
-                pygame.display.update()
+                self.death = False
+                # TODO: очистить файл как в начале
+            if click_continue(click_x, click_y):
+                self.playing_game = True
 
     # Рассчитывает один игровой шаг
     def step(self, active_sprites, background, background_rect, main_menu_pict, img_dir, current_map, map1, map2, map3,
@@ -51,25 +55,29 @@ class Game:
 
         if self.playing_game:
             # Обновление
-            keystate = pygame.key.get_pressed()
-            if keystate[pygame.K_ESCAPE]:
-                self.playing_game = False
-            player_sprite.update(img_dir, current_map, map1, map2, map3, health_bar, mobs, player_anim_up,
-                                 player_anim_down, player_anim_left, player_anim_right, player_udar_up,
-                                 player_udar_down, player_udar_left, player_udar_right)
-            objects.update(img_dir, current_map, map1, map2, map3, health_bar, mobs, player_anim_up,
-                           player_anim_down, player_anim_left, player_anim_right, player_udar_up,
-                           player_udar_down, player_udar_left, player_udar_right)
-            mobs.update(player, active_sprites, img_dir, skelet_anim_up, skelet_anim_down, skelet_anim_right,
-                        skelet_anim_left, player_sprite)
-
-            # Рендеринг
-            self.screen.fill(BLACK)
-            self.screen.blit(background, background_rect)
-            active_sprites.draw(self.screen)
-            draw_text()
-            # Переворачиваем экран после отрисовки
-            pygame.display.flip()
+            if self.death:
+                pass
+                # TODO:сделать текст на черном экране :"Вы умерли, начните новую игру" или что-то в этом роде
+            else:
+                keystate = pygame.key.get_pressed()
+                if keystate[pygame.K_ESCAPE]:
+                    self.playing_game = False
+                player_sprite.update(img_dir, current_map, map1, map2, map3, health_bar, mobs, player_anim_up,
+                                     player_anim_down, player_anim_left, player_anim_right, player_udar_up,
+                                     player_udar_down, player_udar_left, player_udar_right)
+                objects.update(img_dir, current_map, map1, map2, map3, health_bar, mobs, player_anim_up,
+                               player_anim_down, player_anim_left, player_anim_right, player_udar_up,
+                               player_udar_down, player_udar_left, player_udar_right)
+                mobs.update(player, active_sprites, img_dir, skelet_anim_up, skelet_anim_down, skelet_anim_right,
+                            skelet_anim_left, player_sprite)
+                death =
+                # Рендеринг
+                self.screen.fill(BLACK)
+                self.screen.blit(background, background_rect)
+                active_sprites.draw(self.screen)
+                draw_text()
+                # Переворачиваем экран после отрисовки
+                pygame.display.flip()
         else:
             self.in_main_menu(main_menu_pict)
 
