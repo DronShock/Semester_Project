@@ -16,13 +16,17 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2ad9d14-9d6a-49a3-8e13-84cd35a572ed" name="Default Changelist" comment="Доавил созданные карты и реализовал стены">
+    <list default="true" id="b2ad9d14-9d6a-49a3-8e13-84cd35a572ed" name="Default Changelist" comment="Добавил файлы">
       <change beforePath="$PROJECT_DIR$/.idea/Semester_Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Semester_Project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_12_2020_23_17_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_12_2020_23_17__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_12_2020_0_20__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_12_2020_0_20__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/body.py" beforeDir="false" afterPath="$PROJECT_DIR$/body.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/game.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/map.py" beforeDir="false" afterPath="$PROJECT_DIR$/map.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/objects.py" beforeDir="false" afterPath="$PROJECT_DIR$/objects.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/player.py" beforeDir="false" afterPath="$PROJECT_DIR$/player.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/text.py" beforeDir="false" afterPath="$PROJECT_DIR$/text.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +41,13 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="448cc2d91e095247338cae18f26210e17986cd12" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="MIXED" />
   </component>
   <component name="ProjectId" id="1kQ2tgqdjfhSh6d7IxkgvrR7JJ5" />
   <component name="ProjectViewState">
@@ -46,14 +56,9 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/img" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Pycharm_projects\Semester_Project\img" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Python.body">
+  <component name="RunManager" selected="Python.main">
     <configuration name="body" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Semester_Project" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -61,9 +66,9 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="D:\program files\python\python.exe" />
+      <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/body.py" />
@@ -138,54 +143,26 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="map" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Semester_Project" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="D:\program files\python\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/map.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.images" />
         <item itemvalue="Python.body" />
-        <item itemvalue="Python.map" />
+        <item itemvalue="Python.body" />
         <item itemvalue="Python.images" />
         <item itemvalue="Python.main" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
-  <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="b2ad9d14-9d6a-49a3-8e13-84cd35a572ed" name="Default Changelist" comment="Загрузил модели деревьев и добавил черновой вариант взаимодействия с окружением" />
-      <created>1607256653810</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1607256653810</updated>
-    </task>
-    <task id="LOCAL-00001" summary="Доавил созданные карты и реализовал стены">
-      <created>1607262868711</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1607262868711</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
-    <servers />
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -219,10 +196,14 @@
     <MESSAGE value="Добавил анимацию ходьбы и исправил увеличение диагональной скорости" />
     <MESSAGE value="Отредоктировал название файла" />
     <MESSAGE value="Загрузил модели деревьев и добавил черновой вариант взаимодействия с окружением" />
-    <MESSAGE value="Доавил созданные карты и реализовал стены" />
-    <option name="LAST_COMMIT_MESSAGE" value="Доавил созданные карты и реализовал стены" />
+    <MESSAGE value="Добавил противника и реализовал возможность наносить урон по нажатию пробела" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил противника и реализовал возможность наносить урон по нажатию пробела" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="395" y="98" key="#Inspections" timestamp="1607544257675">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="395" y="98" key="#Inspections/0.0.1536.834@0.0.1536.834" timestamp="1607544257675" />
     <state x="488" y="227" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605620943605">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -231,34 +212,30 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="574" y="136" key="#com.intellij.ide.util.MemberChooser/0.0.1536.834@0.0.1536.834" timestamp="1606690850786" />
-    <state x="93" y="93" width="1350" height="648" key="DiffContextDialog" timestamp="1606806593027">
+    <state x="93" y="93" width="1350" height="648" key="DiffContextDialog" timestamp="1607557772727">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="93" y="93" width="1350" height="648" key="DiffContextDialog/0.0.1536.834@0.0.1536.834" timestamp="1606806593027" />
+    <state x="93" y="93" width="1350" height="648" key="DiffContextDialog/0.0.1536.834@0.0.1536.834" timestamp="1607557772727" />
     <state x="549" y="175" key="FileChooserDialogImpl" timestamp="1606693867722">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="549" y="175" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1606693867722" />
-    <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1607676138512">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1515" height="213" key="GridCell.Tab.0.bottom" timestamp="1608003148095">
+      <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="213" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1606806523279" />
-    <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1607676138512" />
-    <state width="1899" height="282" key="GridCell.Tab.0.center" timestamp="1607676138512">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1515" height="213" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1608003148095" />
+    <state width="1515" height="213" key="GridCell.Tab.0.center" timestamp="1608003148095">
+      <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="213" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1606806523279" />
-    <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1607676138512" />
-    <state width="1899" height="282" key="GridCell.Tab.0.left" timestamp="1607676138512">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1515" height="213" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1608003148095" />
+    <state width="1515" height="213" key="GridCell.Tab.0.left" timestamp="1608003148095">
+      <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="213" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1606806523279" />
-    <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1607676138512" />
-    <state width="1899" height="282" key="GridCell.Tab.0.right" timestamp="1607676138512">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1515" height="213" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1608003148095" />
+    <state width="1515" height="213" key="GridCell.Tab.0.right" timestamp="1608003148095">
+      <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="213" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1606806523279" />
-    <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1607676138512" />
+    <state width="1515" height="213" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1608003148095" />
     <state width="1515" height="265" key="GridCell.Tab.1.bottom" timestamp="1606223247369">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -275,47 +252,65 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1515" height="265" key="GridCell.Tab.1.right/0.0.1536.834@0.0.1536.834" timestamp="1606223247369" />
-    <state x="147" y="65" key="MergeDialog" timestamp="1605971964685">
+    <state x="147" y="65" key="MergeDialog" timestamp="1607557610585">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="147" y="65" key="MergeDialog/0.0.1536.834@0.0.1536.834" timestamp="1605971964685" />
+    <state x="147" y="65" key="MergeDialog/0.0.1536.834@0.0.1536.834" timestamp="1607557610585" />
     <state x="407" y="181" key="MultipleFileMergeDialog" timestamp="1605971964694">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="407" y="181" key="MultipleFileMergeDialog/0.0.1536.834@0.0.1536.834" timestamp="1605971964694" />
-    <state x="568" y="124" key="RollbackChangesDialog" timestamp="1606704980142">
+    <state x="568" y="124" key="RollbackChangesDialog" timestamp="1607558042589">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="568" y="124" key="RollbackChangesDialog/0.0.1536.834@0.0.1536.834" timestamp="1606704980142" />
-    <state x="451" y="191" key="Vcs.Push.Dialog.v2" timestamp="1607262873527">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="361" y="153" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1606236265492" />
-    <state x="451" y="191" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1607262873527" />
-    <state x="93" y="93" width="1350" height="648" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1606806593027">
+    <state x="568" y="124" key="RollbackChangesDialog/0.0.1536.834@0.0.1536.834" timestamp="1607558042589" />
+    <state x="618" y="339" key="VCS.ChangelistChooser" timestamp="1607557558372">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="93" y="93" width="1350" height="648" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1536.834@0.0.1536.834" timestamp="1606806593027" />
-    <state x="93" y="93" width="1350" height="648" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1606692106518">
+    <state x="618" y="339" key="VCS.ChangelistChooser/0.0.1536.834@0.0.1536.834" timestamp="1607557558372" />
+    <state x="361" y="153" key="Vcs.Push.Dialog.v2" timestamp="1606943991788">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="93" y="93" width="1350" height="648" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.834@0.0.1536.834" timestamp="1606692106518" />
-    <state x="738" y="416" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607675779439">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="361" y="153" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1606943991788" />
+    <state x="93" y="93" width="1350" height="648" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1607965150857">
+      <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="590" y="334" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.834@0.0.1536.834" timestamp="1606806994808" />
-    <state x="738" y="416" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1607675779439" />
+    <state x="93" y="93" width="1350" height="648" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1536.834@0.0.1536.834" timestamp="1607965150857" />
+    <state x="93" y="93" width="1350" height="648" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1607553928296">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="93" y="93" width="1350" height="648" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.834@0.0.1536.834" timestamp="1607553928296" />
+    <state x="590" y="334" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607421373301">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="590" y="334" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.834@0.0.1536.834" timestamp="1607421373301" />
     <state x="619" y="207" key="refactoring.ChangeSignatureDialog" timestamp="1606685855977">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="619" y="207" key="refactoring.ChangeSignatureDialog/0.0.1536.834@0.0.1536.834" timestamp="1606685855977" />
-    <state x="425" y="189" key="run.anything.popup" timestamp="1606692057444">
+    <state x="425" y="189" key="run.anything.popup" timestamp="1607997454436">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="425" y="189" key="run.anything.popup/0.0.1536.834@0.0.1536.834" timestamp="1606692057444" />
-    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1606686568032">
+    <state x="425" y="189" key="run.anything.popup/0.0.1536.834@0.0.1536.834" timestamp="1607997454436" />
+    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1606942150578">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1606686568032" />
+    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1606942150578" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$USER_HOME$/AppData/Local/Temp/player.py</url>
+          <line>3</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$USER_HOME$/AppData/Local/Temp/blocks.py</url>
+          <line>3</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

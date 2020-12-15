@@ -25,7 +25,7 @@ class Game:
         pygame.display.update()
         if self.event.type == pygame.MOUSEBUTTONDOWN and self.event.button == 1:
             click_x, click_y = self.event.pos
-            if click_new_game(click_x, click_y):
+            if click_new_game(click_x, click_y) or click_continue(click_x, click_y):
                 self.playing_game = True
                 self.screen.fill(BLACK)
                 pygame.display.update()
@@ -53,7 +53,8 @@ class Game:
                            player_anim_down, player_anim_left, player_anim_right, player_udar_up,
                            player_udar_down, player_udar_left, player_udar_right)
             mobs.update(player, active_sprites, img_dir, skelet_anim_up, skelet_anim_down, skelet_anim_right,
-                        skelet_anim_left)
+                        skelet_anim_left, player_sprite)
+
             # Рендеринг
             self.screen.fill(BLACK)
             self.screen.blit(background, background_rect)

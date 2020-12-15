@@ -18,6 +18,7 @@ class Player(pygame.sprite.Sprite):
         self.speedy = 0
         self.move = "up"
         self.uron = None
+        self.udar_flag = 0
         self.frame = 0
         self.last_update = pygame.time.get_ticks()
         self.frame_rate = 200
@@ -56,18 +57,6 @@ class Player(pygame.sprite.Sprite):
             self.next_x = self.rect.x
             self.next_y = self.rect.y
 
-        # Проверка на нажаите триггера
-        if current_map.trigger(self.next_x, self.next_y) > 1:
-            id = current_map.trigger(self.next_x, self.next_y)
-            if current_map == map1:
-                if id == 2:
-                    current_map = map2
-
-                if id == 3:
-                    current_map = map3
-            if current_map == map2:
-                pass
-
         # Проверка границ экрана
         if self.rect.right > WIDTH:
             self.rect.right = WIDTH
@@ -83,14 +72,15 @@ class Player(pygame.sprite.Sprite):
     def udar(self, player_udar_up, player_udar_down, player_udar_left, player_udar_right):
         self.uron = None
         keystate = pygame.key.get_pressed()
-        if keystate[pygame.K_SPACE]:
+        if keystate[pygame.K_SPACE] and self.udar_flag == 0:
+            self.udar_flag = 30
             self.image = eval("player_udar_{}".format(self.move)).convert()
             self.uron = self.move
-            # self.image = pygame.image.load(path.join(img_dir, eval('player_anim_{}'.format(self.move))[0])).convert()
-            # self.image = pygame.transform.scale(self.image, (35, 43))
             old_center = self.rect.center
             self.rect = self.image.get_rect()
             self.rect.center = old_center
+        if self.udar_flag > 0:
+            self.udar_flag -= 1
 
     def bitva(self, mobs, health_bar):
         hits = pygame.sprite.spritecollide(self, mobs, False, pygame.sprite.collide_rect_ratio(0.2))
@@ -143,7 +133,7 @@ class Enemy(pygame.sprite.Sprite):
     def __init__(self, x, y, player_img):
         pygame.sprite.Sprite.__init__(self)
         self.image = player_img
-        self.health_points = 15
+        self.health_points = 5
         self.image.set_colorkey(BLACK)
         self.rect = self.image.get_rect()
         self.rect.centerx = x
@@ -156,7 +146,7 @@ class Enemy(pygame.sprite.Sprite):
         Enemy.items.append(self)
 
     def update(self, player, active_sprites, img_dir, skelet_anim_up, skelet_anim_down, skelet_anim_right,
-               skelet_anim_left):
+               skelet_anim_left, player_sprite):
         if self.rect.centery > player.rect.centery:
             self.speedy = -1
             self.animation("up", img_dir, skelet_anim_up, skelet_anim_down, skelet_anim_right, skelet_anim_left)
@@ -183,14 +173,15 @@ class Enemy(pygame.sprite.Sprite):
 
         self.rect.centerx += self.speedx
         self.rect.centery += self.speedy
-        self.poluchenie_urona(active_sprites, player)
+        self.poluchenie_urona(player_sprite, player)
 
     def poluchenie_urona(self, player_sprite, player):
-        hits = pygame.sprite.spritecollide(self, player_sprite, False, pygame.sprite.collide_rect_ratio(0.8))
+        hits = pygame.sprite.spritecollide(self, player_sprite, False, pygame.sprite.collide_rect_ratio(1.1))
         if player.uron is not None:
             if hits:
                 self.health_points -= 1
-                self.rect.centerx -= 20 * self.speedx // abs(self.speedx)
+                self.rect.centerx -= 20 * self.speedx // (abs(self.speedx)+0.1)
+                self.rect.centery -= 20 * self.speedy // (abs(self.speedy)+0.1)
         if self.health_points == 0:
             self.kill()
 
@@ -209,22 +200,33 @@ class Enemy(pygame.sprite.Sprite):
             self.rect.center = old_center
 
 
-def sozdanie_vragov(player_img):
+def create_characters(player_img):
+    active_sprites = pygame.sprite.Group()
+    player_sprite = pygame.sprite.Group()
+    mobs = pygame.sprite.Group()
     skelet1 = Enemy(100, 100, player_img)
     skelet2 = Enemy(200, 200, player_img)
     skelet3 = Enemy(300, 300, player_img)
     skelet4 = Enemy(400, 400, player_img)
     skelet5 = Enemy(500, 500, player_img)
-
-
-def create_characters(player_img):
-    active_sprites = pygame.sprite.Group()
-    player_sprite = pygame.sprite.Group()
-    mobs = pygame.sprite.Group()
+    skelet6 = Enemy(500, 100, player_img)
+    skelet7 = Enemy(700, 200, player_img)
+    skelet8 = Enemy(200, 600, player_img)
+    skelet9 = Enemy(600, 400, player_img)
+    skelet10 = Enemy(100, 500, player_img)
     player = Player(player_img)
     active_sprites.add(player)
     player_sprite.add(player)
+    return active_sprites, player_sprite, player, mobs
+
+
+def sozdanie_vragov(player_img, mobs, active_sprites):
     for mob in Enemy.items:
         mobs.add(mob)
         active_sprites.add(mob)
-    return active_sprites, player_sprite, player, mobs
+
+
+def udalenie_vragov(mobs, active_sprites):
+    for mob in Enemy.items:
+        mobs.add(mob)
+        active_sprites.remove(mob)
